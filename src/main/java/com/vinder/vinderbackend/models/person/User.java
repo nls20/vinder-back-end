@@ -6,8 +6,8 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 
 @Entity
-@Table(name = "people")
-public class Person {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,10 +40,10 @@ public class Person {
 //    private ArrayList<Person> peopleMatched;
 //    private ArrayList<Person> peopleLiked;
 
-    public Person() {
+    public User() {
     }
 
-    public Person(String name, int age, Gender gender, String location, Gender gender_preference, String hobbies, Boolean vaccinated, String pictures) {
+    public User(String name, int age, Gender gender, String location, Gender gender_preference, String hobbies, Boolean vaccinated, String pictures) {
         this.name = name;
         this.age = age;
         this.gender = gender;

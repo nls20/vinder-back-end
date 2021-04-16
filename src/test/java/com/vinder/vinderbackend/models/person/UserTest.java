@@ -7,13 +7,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-public class PersonTest {
+public class UserTest {
 
-    Person person;
+    User user;
 
     @Before
     public void before() {
-        person = new Person("Mark", 33, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true, "picture");
+        user = new User("Mark", 33, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true, "picture");
     }
 
 //    @Test
@@ -26,90 +26,90 @@ public class PersonTest {
 
     @Test
     public void getName() {
-        assertEquals("Mark", person.getName());
+        assertEquals("Mark", user.getName());
     }
 
     @Test
     public void setName() {
-        person.setName("David");
-        assertEquals("David", person.getName());
+        user.setName("David");
+        assertEquals("David", user.getName());
     }
 
     @Test
     public void getAge() {
-        assertEquals(33, person.getAge());
+        assertEquals(33, user.getAge());
     }
 
     @Test
     public void setAge() {
-        person.setAge(25);
-        assertEquals(25, person.getAge());
+        user.setAge(25);
+        assertEquals(25, user.getAge());
     }
 
     @Test
     public void getGender() {
-        assertEquals(Gender.MALE, person.getGender());
+        assertEquals(Gender.MALE, user.getGender());
     }
 
     @Test
     public void setGender() {
-        person.setGender(Gender.FEMALE);
-        assertEquals(Gender.FEMALE, person.getGender());
+        user.setGender(Gender.FEMALE);
+        assertEquals(Gender.FEMALE, user.getGender());
     }
 
     @Test
     public void getLocation() {
-        assertEquals("Glasgow", person.getLocation());
+        assertEquals("Glasgow", user.getLocation());
     }
 
     @Test
     public void setLocation() {
-        person.setLocation("Edinburgh");
-        assertEquals("Edinburgh", person.getLocation());
+        user.setLocation("Edinburgh");
+        assertEquals("Edinburgh", user.getLocation());
     }
 
     @Test
     public void getGender_preference() {
-        assertEquals(Gender.FEMALE, person.getGender_preference());
+        assertEquals(Gender.FEMALE, user.getGender_preference());
     }
 
     @Test
     public void setGender_preference() {
-        person.setGender_preference(Gender.MALE);
-        assertEquals(Gender.MALE, person.getGender_preference());
+        user.setGender_preference(Gender.MALE);
+        assertEquals(Gender.MALE, user.getGender_preference());
     }
 
     @Test
     public void getHobbies() {
-        assertEquals("Programming", person.getHobbies());
+        assertEquals("Programming", user.getHobbies());
     }
 
     @Test
     public void setHobbies() {
-        person.setHobbies("Football");
-        assertEquals("Football", person.getHobbies());
+        user.setHobbies("Football");
+        assertEquals("Football", user.getHobbies());
     }
 
     @Test
     public void getVaccinated() {
-        assertEquals(true, person.getVaccinated());
+        assertEquals(true, user.getVaccinated());
     }
 
     @Test
     public void setVaccinated() {
-        person.setVaccinated(false);
-        assertEquals(false, person.getVaccinated());
+        user.setVaccinated(false);
+        assertEquals(false, user.getVaccinated());
     }
 
     @Test
     public void getPictures() {
-        assertEquals("picture", person.getPictures());
+        assertEquals("picture", user.getPictures());
     }
 
     @Test
     public void setPictures() {
-        person.setPictures("pictures");
-        assertEquals("pictures", person.getPictures());
+        user.setPictures("pictures");
+        assertEquals("pictures", user.getPictures());
     }
 
 //    @Test
