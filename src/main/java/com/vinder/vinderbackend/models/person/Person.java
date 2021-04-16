@@ -1,23 +1,47 @@
 package com.vinder.vinderbackend.models.person;
 
+import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.persistence.Table;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "people")
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    private String name;
-    private int age;
-    private Gender gender;
-    private String location;
-    private Gender gender_preference;
-    private String hobbies;
-    private Boolean vaccinated;
-    private String pictures;   // Added as String for now
-    private ArrayList<Person> peopleMatched;
-    private ArrayList<Person> peopleLiked;
 
-//    public Person() {
-//    }
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "age")
+    private int age;
+
+    @Column(name = "gender")
+    private Gender gender;
+
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "gender_preference")
+    private Gender gender_preference;
+
+    @Column(name = "hobbies")
+    private String hobbies;
+
+    @Column(name = "vaccinated")
+    private Boolean vaccinated;
+
+    @Column(name = "pictures")
+    private String pictures;   // Added as String for now
+
+//    private ArrayList<Person> peopleMatched;
+//    private ArrayList<Person> peopleLiked;
+
+    public Person() {
+    }
 
     public Person(String name, int age, Gender gender, String location, Gender gender_preference, String hobbies, Boolean vaccinated, String pictures) {
         this.name = name;
@@ -28,8 +52,8 @@ public class Person {
         this.hobbies = hobbies;
         this.vaccinated = vaccinated;
         this.pictures = pictures;
-        this.peopleMatched = new ArrayList<>();
-        this.peopleLiked = new ArrayList<>();
+//        this.peopleMatched = new ArrayList<>();
+//        this.peopleLiked = new ArrayList<>();
     }
 
     public Long getId() {
@@ -104,19 +128,19 @@ public class Person {
         this.pictures = pictures;
     }
 
-    public ArrayList<Person> getPeopleMatched() {
-        return peopleMatched;
-    }
-
-    public void setPeopleMatched(ArrayList<Person> peopleMatched) {
-        this.peopleMatched = peopleMatched;
-    }
-
-    public ArrayList<Person> getPeopleLiked() {
-        return peopleLiked;
-    }
-
-    public void setPeopleLiked(ArrayList<Person> peopleLiked) {
-        this.peopleLiked = peopleLiked;
-    }
+//    public ArrayList<Person> getPeopleMatched() {
+//        return peopleMatched;
+//    }
+//
+//    public void setPeopleMatched(ArrayList<Person> peopleMatched) {
+//        this.peopleMatched = peopleMatched;
+//    }
+//
+//    public ArrayList<Person> getPeopleLiked() {
+//        return peopleLiked;
+//    }
+//
+//    public void setPeopleLiked(ArrayList<Person> peopleLiked) {
+//        this.peopleLiked = peopleLiked;
+//    }
 }
