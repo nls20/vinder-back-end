@@ -33,13 +33,13 @@ public class DataLoader implements ApplicationRunner {
         User natalie = new User("Natalie", 30, Gender.FEMALE, "Glasgow", Gender.MALE, "Programming", true);
         userRepository.save(natalie);
 
-        ProfileImage picture1 = new ProfileImage("image1.png");
+        ProfileImage picture1 = new ProfileImage("image1.png", mark);
         profileImageRepository.save(picture1);
 
-        ProfileImage picture2 = new ProfileImage("image1.png");
+        ProfileImage picture2 = new ProfileImage("image1.png", mark);
         profileImageRepository.save(picture2);
 
-        ProfileImage picture3 = new ProfileImage("image1.png");
+        ProfileImage picture3 = new ProfileImage("image1.png", mark);
         profileImageRepository.save(picture3);
 
 

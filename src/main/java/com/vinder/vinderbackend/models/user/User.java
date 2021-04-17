@@ -1,11 +1,15 @@
 package com.vinder.vinderbackend.models.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.vinder.vinderbackend.models.image.ProfileImage;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -36,11 +40,13 @@ public class User {
     @Column(name = "vaccinated")
     private Boolean vaccinated;
 
-    @Column(name = "pictures")
-    private ArrayList<ProfileImage> pictures;
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<ProfileImage> profileImages;
 
-//    private ArrayList<Person> peopleMatched;
-//    private ArrayList<Person> peopleLiked;
+//    private List<Person> peopleMatched;
+//    private List<Person> peopleLiked;
 
     public User() {
     }
@@ -53,7 +59,7 @@ public class User {
         this.gender_preference = gender_preference;
         this.hobbies = hobbies;
         this.vaccinated = vaccinated;
-        this.pictures = new ArrayList<>();
+        this.profileImages = new ArrayList<>();
 //        this.peopleMatched = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
     }
@@ -122,15 +128,15 @@ public class User {
         this.vaccinated = vaccinated;
     }
 
-//    public String getPictures() {
-//        return pictures;
-//    }
-//
-//    public void setPictures(String pictures) {
-//        this.pictures = pictures;
-//    }
+    public List<ProfileImage> getProfileImages() {
+        return profileImages;
+    }
 
-//    public ArrayList<Person> getPeopleMatched() {
+    public void setProfileImages(List<ProfileImage> profileImages) {
+        this.profileImages = profileImages;
+    }
+
+    //    public ArrayList<Person> getPeopleMatched() {
 //        return peopleMatched;
 //    }
 //

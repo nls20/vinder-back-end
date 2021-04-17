@@ -1,5 +1,8 @@
 package com.vinder.vinderbackend.models.image;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.vinder.vinderbackend.models.user.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,11 +16,17 @@ public class ProfileImage {
     @Column(name = "image_url")
     private String imageURL;
 
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     public ProfileImage() {
     }
 
-    public ProfileImage(String imageURL) {
+    public ProfileImage(String imageURL, User user) {
         this.imageURL = imageURL;
+        this.user = user;
     }
 
     public Long getId() {
@@ -34,5 +43,13 @@ public class ProfileImage {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
