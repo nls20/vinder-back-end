@@ -1,7 +1,6 @@
 package com.vinder.vinderbackend.models.conversation;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
@@ -24,6 +23,35 @@ public class Participant {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-//    @OneToMany
-//    @JsonManagedReference
+    public Participant() {
+    }
+
+    public Participant(Conversation conversation, User user) {
+        this.conversation = conversation;
+        this.user = user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Conversation getConversation() {
+        return conversation;
+    }
+
+    public void setConversation(Conversation conversation) {
+        this.conversation = conversation;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

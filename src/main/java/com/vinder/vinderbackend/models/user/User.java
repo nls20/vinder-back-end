@@ -54,7 +54,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Conversation> conversations;
 
-    //This is for a list of participants in chat with??
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @JsonManagedReference
     @OneToMany(mappedBy = "user")
