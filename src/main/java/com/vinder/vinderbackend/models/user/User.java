@@ -111,11 +111,11 @@ public class User {
         this.gender_preference = gender_preference;
     }
 
-    public String getbio() {
+    public String getBio() {
         return bio;
     }
 
-    public void setbio(String bio) {
+    public void setBio(String bio) {
         this.bio = bio;
     }
 
