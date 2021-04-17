@@ -1,5 +1,6 @@
 package com.vinder.vinderbackend.controllers;
 
+import com.vinder.vinderbackend.models.user.Gender;
 import com.vinder.vinderbackend.models.user.User;
 import com.vinder.vinderbackend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,26 @@ import java.util.List;
 @RestController
 public class UserController {
 
+    /**
+     * GET /users
+     * GET /users?gender=male
+     *
+     */
+
     @Autowired
     UserRepository userRepository;
 
     @GetMapping(value = "/users")
-    public ResponseEntity<User> getAUser() {
+    public ResponseEntity<User> getAUser(
+            @RequestParam(required = false, name="gender") Gender gender
+    ) {
+        //returns all users by gender
+        if(gender != null) {
+            List<User> allOfGender = userRepository.findAllUsersByGender(gender);
+            return new ResponseEntity(allOfGender, HttpStatus.OK);
+        }
+
+        //returns all users
         return new ResponseEntity(userRepository.findAll(), HttpStatus.OK);
     }
 

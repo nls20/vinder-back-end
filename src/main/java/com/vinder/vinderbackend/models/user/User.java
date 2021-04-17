@@ -1,8 +1,11 @@
 package com.vinder.vinderbackend.models.user;
 
+import com.vinder.vinderbackend.models.image.ProfileImage;
+
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "users")
@@ -34,7 +37,7 @@ public class User {
     private Boolean vaccinated;
 
     @Column(name = "pictures")
-    private String pictures;   // Added as String for now
+    private ArrayList<ProfileImage> pictures;
 
 //    private ArrayList<Person> peopleMatched;
 //    private ArrayList<Person> peopleLiked;
@@ -42,7 +45,7 @@ public class User {
     public User() {
     }
 
-    public User(String name, int age, Gender gender, String location, Gender gender_preference, String hobbies, Boolean vaccinated, String pictures) {
+    public User(String name, int age, Gender gender, String location, Gender gender_preference, String hobbies, Boolean vaccinated) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -50,7 +53,7 @@ public class User {
         this.gender_preference = gender_preference;
         this.hobbies = hobbies;
         this.vaccinated = vaccinated;
-        this.pictures = pictures;
+        this.pictures = new ArrayList<>();
 //        this.peopleMatched = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
     }
@@ -119,13 +122,13 @@ public class User {
         this.vaccinated = vaccinated;
     }
 
-    public String getPictures() {
-        return pictures;
-    }
-
-    public void setPictures(String pictures) {
-        this.pictures = pictures;
-    }
+//    public String getPictures() {
+//        return pictures;
+//    }
+//
+//    public void setPictures(String pictures) {
+//        this.pictures = pictures;
+//    }
 
 //    public ArrayList<Person> getPeopleMatched() {
 //        return peopleMatched;
