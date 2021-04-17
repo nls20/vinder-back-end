@@ -13,14 +13,14 @@ import java.util.List;
 @RestController
 public class UserController {
 
+    @Autowired
+    UserRepository userRepository;
+
     /**
      * GET /users
      * GET /users?gender=male
      *
      */
-
-    @Autowired
-    UserRepository userRepository;
 
     @GetMapping(value = "/users")
     public ResponseEntity<User> getAUser(

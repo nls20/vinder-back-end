@@ -4,7 +4,8 @@ public enum Gender {
 
     MALE,
     FEMALE,
-    NONBINARY;
+    NONBINARY,
+    ALL;
 
     Gender() {
 

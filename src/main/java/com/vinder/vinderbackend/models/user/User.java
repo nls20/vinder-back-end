@@ -1,6 +1,5 @@
 package com.vinder.vinderbackend.models.user;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.vinder.vinderbackend.models.image.ProfileImage;
 import org.hibernate.annotations.Cascade;
@@ -34,8 +33,8 @@ public class User {
     @Column(name = "gender_preference")
     private Gender gender_preference;
 
-    @Column(name = "hobbies")
-    private String hobbies;
+    @Column(name = "bio")
+    private String bio;
 
     @Column(name = "vaccinated")
     private Boolean vaccinated;
@@ -45,19 +44,19 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-//    private List<Person> peopleMatched;
-//    private List<Person> peopleLiked;
+//    private List<User> peopleMatched;
+//    private List<User> peopleLiked;
 
     public User() {
     }
 
-    public User(String name, int age, Gender gender, String location, Gender gender_preference, String hobbies, Boolean vaccinated) {
+    public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.location = location;
         this.gender_preference = gender_preference;
-        this.hobbies = hobbies;
+        this.bio = bio;
         this.vaccinated = vaccinated;
         this.profileImages = new ArrayList<>();
 //        this.peopleMatched = new ArrayList<>();
@@ -112,12 +111,12 @@ public class User {
         this.gender_preference = gender_preference;
     }
 
-    public String getHobbies() {
-        return hobbies;
+    public String getbio() {
+        return bio;
     }
 
-    public void setHobbies(String hobbies) {
-        this.hobbies = hobbies;
+    public void setbio(String bio) {
+        this.bio = bio;
     }
 
     public Boolean getVaccinated() {
@@ -136,19 +135,19 @@ public class User {
         this.profileImages = profileImages;
     }
 
-    //    public ArrayList<Person> getPeopleMatched() {
+//    public List<User> getPeopleMatched() {
 //        return peopleMatched;
 //    }
 //
-//    public void setPeopleMatched(ArrayList<Person> peopleMatched) {
+//    public void setPeopleMatched(List<User> peopleMatched) {
 //        this.peopleMatched = peopleMatched;
 //    }
 //
-//    public ArrayList<Person> getPeopleLiked() {
+//    public List<User> getPeopleLiked() {
 //        return peopleLiked;
 //    }
 //
-//    public void setPeopleLiked(ArrayList<Person> peopleLiked) {
+//    public void setPeopleLiked(List<User> peopleLiked) {
 //        this.peopleLiked = peopleLiked;
 //    }
 }
