@@ -23,7 +23,7 @@ public class Message {
 
     @Column(name = "time_sent")
 //    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp timeSent;
+    private Timestamp timestamp;
 
     public Message() {
     }
@@ -31,6 +31,7 @@ public class Message {
     public Message(Participant participant, String message) {
         this.participant = participant;
         this.message = message;
+        this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
     public Long getId() {
@@ -41,11 +42,11 @@ public class Message {
         this.id = id;
     }
 
-    public Participant getSenderID() {
+    public Participant getParticipant() {
         return participant;
     }
 
-    public void setSenderID(Participant participant) {
+    public void setParticipant(Participant participant) {
         this.participant = participant;
     }
 
@@ -57,11 +58,11 @@ public class Message {
         this.message = message;
     }
 
-    public Timestamp getTimeSent() {
-        return timeSent;
+    public Timestamp getTimestamp() {
+        return timestamp;
     }
 
-    public void setTimeSent(Timestamp timeSent) {
-        this.timeSent = timeSent;
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 }

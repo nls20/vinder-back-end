@@ -1,14 +1,11 @@
 package com.vinder.vinderbackend.models.conversation;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.vinder.vinderbackend.models.user.User;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "conversations")
@@ -23,17 +20,17 @@ public class Conversation {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "time_sent")
+    @Column(name = "conversation_started")
 //    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp lastMessage;
+    private Timestamp timestamp;
 
 
     public Conversation() {
     }
 
-    public Conversation(User user, Timestamp lastMessage) {
+    public Conversation(User user) {
         this.user = user;
-        this.lastMessage = lastMessage;
+        this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
     public Long getId() {
@@ -53,11 +50,11 @@ public class Conversation {
     }
 
     public Timestamp getLastMessage() {
-        return lastMessage;
+        return timestamp;
     }
 
-    public void setLastMessage(Timestamp lastMessage) {
-        this.lastMessage = lastMessage;
+    public void setLastMessage(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
 }

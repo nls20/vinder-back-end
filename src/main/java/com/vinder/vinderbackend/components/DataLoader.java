@@ -1,10 +1,12 @@
 package com.vinder.vinderbackend.components;
 
+import com.vinder.vinderbackend.models.conversation.Conversation;
+import com.vinder.vinderbackend.models.conversation.Message;
+import com.vinder.vinderbackend.models.conversation.Participant;
 import com.vinder.vinderbackend.models.image.ProfileImage;
 import com.vinder.vinderbackend.models.user.Gender;
 import com.vinder.vinderbackend.models.user.User;
-import com.vinder.vinderbackend.repositories.ProfileImageRepository;
-import com.vinder.vinderbackend.repositories.UserRepository;
+import com.vinder.vinderbackend.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -19,11 +21,23 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     ProfileImageRepository profileImageRepository;
 
+    @Autowired
+    ConversationRepository conversationRepository;
+
+    @Autowired
+    ParticipantRepository participantRepository;
+
+    @Autowired
+    MessageRepository messageRepository;
+
     public DataLoader() {
 
     }
 
     public void run(ApplicationArguments args) {
+
+        //USERS
+
         User mark = new User("Mark", 33, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true);
         userRepository.save(mark);
 
@@ -42,6 +56,27 @@ public class DataLoader implements ApplicationRunner {
         ProfileImage picture3 = new ProfileImage("image1.png", mark);
         profileImageRepository.save(picture3);
 
+
+
+        //CONVERSATIONS
+
+        Conversation conversation1 = new Conversation(mark);
+        conversationRepository.save(conversation1);
+
+        Participant participant1 = new Participant(conversation1, mark);
+        participantRepository.save(participant1);
+
+        Participant participant2 = new Participant(conversation1, david);
+        participantRepository.save(participant2);
+
+        Message message1 = new Message(participant1, "Hi David");
+        messageRepository.save(message1);
+
+        Message message2 = new Message(participant2, "Hi Mark");
+        messageRepository.save(message2);
+
+        Message message3 = new Message(participant1, "This chat is boring");
+        messageRepository.save(message3);
 
     }
 
