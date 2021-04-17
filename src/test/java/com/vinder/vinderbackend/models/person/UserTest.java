@@ -1,5 +1,7 @@
 package com.vinder.vinderbackend.models.person;
 
+import com.vinder.vinderbackend.models.user.Gender;
+import com.vinder.vinderbackend.models.user.User;
 import org.junit.Before;
 import org.junit.Test;
 

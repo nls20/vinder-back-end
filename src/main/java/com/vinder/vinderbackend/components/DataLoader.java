@@ -1,7 +1,7 @@
 package com.vinder.vinderbackend.components;
 
-import com.vinder.vinderbackend.models.person.Gender;
-import com.vinder.vinderbackend.models.person.User;
+import com.vinder.vinderbackend.models.user.Gender;
+import com.vinder.vinderbackend.models.user.User;
 import com.vinder.vinderbackend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -21,6 +21,9 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         User mark = new User("Mark", 33, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true, "picture");
         userRepository.save(mark);
+
+        User david = new User("David", 24, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true, "picture");
+        userRepository.save(david);
     }
 
 }

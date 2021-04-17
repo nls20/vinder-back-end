@@ -1,4 +1,4 @@
-package com.vinder.vinderbackend.models.person;
+package com.vinder.vinderbackend.models.user;
 
 public enum Gender {
 

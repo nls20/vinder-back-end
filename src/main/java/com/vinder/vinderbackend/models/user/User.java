@@ -1,9 +1,8 @@
-package com.vinder.vinderbackend.models.person;
+package com.vinder.vinderbackend.models.user;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "users")
