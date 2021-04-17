@@ -1,16 +1,22 @@
 package com.vinder.vinderbackend.models.conversation;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "messages")
 public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "sender_id")
-    private int senderID;
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "participant_id")
+    private Participant participant;
 
     @Column(name = "message")
     private String message;
@@ -22,8 +28,8 @@ public class Message {
     public Message() {
     }
 
-    public Message(int senderID, String message) {
-        this.senderID = senderID;
+    public Message(Participant participant, String message) {
+        this.participant = participant;
         this.message = message;
     }
 
@@ -35,12 +41,12 @@ public class Message {
         this.id = id;
     }
 
-    public int getSenderID() {
-        return senderID;
+    public Participant getSenderID() {
+        return participant;
     }
 
-    public void setSenderID(int senderID) {
-        this.senderID = senderID;
+    public void setSenderID(Participant participant) {
+        this.participant = participant;
     }
 
     public String getMessage() {
