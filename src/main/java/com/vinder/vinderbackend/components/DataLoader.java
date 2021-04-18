@@ -47,6 +47,25 @@ public class DataLoader implements ApplicationRunner {
         User natalie = new User("Natalie", 30, Gender.FEMALE, "Glasgow", Gender.MALE, "Programming", true);
         userRepository.save(natalie);
 
+        User harrison = new User("Harrison", 23, Gender.MALE, "Alderran", Gender.FEMALE, "Killing bad guys", true);
+        userRepository.save(harrison);
+
+        User bill = new User("Bill", 50, Gender.MALE, "Glasgow", Gender.FEMALE, "Swimming", true);
+        userRepository.save(bill);
+
+        User mike = new User("Mike", 45, Gender.MALE, "Edinburgh", Gender.FEMALE, "Cycling", true);
+        userRepository.save(mike);
+
+        User doug = new User("Doug", 25, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        userRepository.save(doug);
+
+        User barry = new User("Barry", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        userRepository.save(barry);
+
+        User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        userRepository.save(james);
+
+
         ProfileImage picture1 = new ProfileImage("image1.png", mark);
         profileImageRepository.save(picture1);
 
@@ -59,6 +78,7 @@ public class DataLoader implements ApplicationRunner {
 
 
         //CONVERSATIONS
+            //CONVERSATION_1
 
         Conversation conversation1 = new Conversation(mark);
         conversationRepository.save(conversation1);
@@ -66,17 +86,35 @@ public class DataLoader implements ApplicationRunner {
         Participant participant1 = new Participant(conversation1, mark);
         participantRepository.save(participant1);
 
-        Participant participant2 = new Participant(conversation1, david);
+        Participant participant2 = new Participant(conversation1, natalie);
         participantRepository.save(participant2);
 
-        Message message1 = new Message(participant1, "Hi David");
+        Message message1 = new Message(participant1, "Hi Natalie (Chat 1)");
         messageRepository.save(message1);
 
-        Message message2 = new Message(participant2, "Hi Mark");
+        Message message2 = new Message(participant2, "Hi Mark (Chat 1)");
         messageRepository.save(message2);
 
-        Message message3 = new Message(participant1, "This chat is boring");
+        Message message3 = new Message(participant1, "This chat is boring (Chat 1)");
         messageRepository.save(message3);
+
+
+            //CONVERSATION_2
+
+        Conversation conversation2 = new Conversation(david);
+        conversationRepository.save(conversation2);
+
+        Participant participant3 = new Participant(conversation2, david);
+        participantRepository.save(participant3);
+
+        Participant participant4 = new Participant(conversation2, natalie);
+        participantRepository.save(participant4);
+
+        Message message4 = new Message(participant3, "Yo Natalie (Chat 2) ");
+        messageRepository.save(message4);
+
+        Message message5 = new Message(participant4, "Hi David (Chat 2)");
+        messageRepository.save(message5);
 
     }
 
