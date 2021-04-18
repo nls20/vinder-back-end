@@ -16,7 +16,15 @@ public class MessageController {
     MessageRepository messageRepository;
 
     @GetMapping(value = "/messages")
-    public ResponseEntity<Message> getAllMessages() {
+    public ResponseEntity<Message> getAllMessages(
+            @RequestParam(required = false, name = "conversationId") Long conversationId
+    ) {
+        //if we have Conversation ID  |  example: "/messages?conversationId=1"
+        if (conversationId != null) {
+            return new ResponseEntity(messageRepository.findByParticipantConversationId(conversationId), HttpStatus.OK);
+        }
+
+        //default: GET all messages
         return new ResponseEntity(messageRepository.findAll(), HttpStatus.OK);
     }
 
