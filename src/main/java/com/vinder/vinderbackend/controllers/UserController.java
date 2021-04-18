@@ -41,6 +41,11 @@ public class UserController {
         return new ResponseEntity(userRepository.findById(id), HttpStatus.OK);
     }
 
+//    @GetMapping(value = "/users/{id}/matches")
+//    public ResponseEntity<List<User>> getAllUserMatches(@PathVariable Long id){
+//        return new ResponseEntity<>()
+//    }
+
     @PostMapping(value = "/users")
     public ResponseEntity<User> postUser(@RequestBody User user) {
         userRepository.save(user);
