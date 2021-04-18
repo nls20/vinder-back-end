@@ -16,7 +16,15 @@ public class ConversationController {
     ConversationRepository conversationRepository;
 
     @GetMapping(value = "/conversations")
-    public ResponseEntity<Conversation> getAllConversations() {
+    public ResponseEntity<Conversation> getAllConversations(
+            @RequestParam(required = false, name = "userId") Long userId
+    ) {
+        //if we have userID ID  |  example: "/conversation?userId=1"
+        if (userId != null) {
+            return new ResponseEntity(conversationRepository.findByParticipantsUserId(userId), HttpStatus.OK);
+        }
+
+        //default: GET all conversations
         return new ResponseEntity(conversationRepository.findAll(), HttpStatus.OK);
     }
 
