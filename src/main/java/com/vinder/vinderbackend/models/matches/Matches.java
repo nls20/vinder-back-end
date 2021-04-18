@@ -19,8 +19,7 @@ public class Matches {
     @JsonIgnoreProperties({"matches"})
     private List<User> matches;
 
-    public Matches(User userOne, User userTwo) {
-        this.matches = new ArrayList<>();
+    public Matches() {
     }
 
     public Long getId() {
