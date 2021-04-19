@@ -17,7 +17,6 @@ public class ProfileImage {
     private String imageURL;
 
     @ManyToOne
-    @JsonBackReference
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
