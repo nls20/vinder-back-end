@@ -63,13 +63,12 @@ class VinderBackendApplicationTests {
 
         System.out.println(james.getId());
 
-        List<User> users = userRepository.matchedUsersForSpecificUser(16L);
+        List<User> users = userRepository.matchedUsersForSpecificUser(doug.getId());
 
+        System.out.println(userRepository.matchedUsersForSpecificUser(doug.getId()));
         for (int i = 0; i < users.size(); i++) {
             System.out.println(users.get(i).getName());
         }
-
-        System.out.println(users);
 
     }
 

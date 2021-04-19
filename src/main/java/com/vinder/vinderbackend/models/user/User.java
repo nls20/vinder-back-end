@@ -87,6 +87,7 @@ public class User {
         this.userImage = userImage;
         this.profileImages = new ArrayList<>();
         this.matches = new ArrayList<>();
+        this.matchedWiths = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
         this.conversations = new ArrayList<>();
         this.conversations = new ArrayList<>();
