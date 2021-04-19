@@ -55,12 +55,16 @@ public class User {
     @OneToMany(mappedBy = "matchedUser")
     private List<Match> matchedWiths;
 
-//    private List<User> peopleLiked;
+    @OneToMany(mappedBy = "users")
+    private List<User> peopleWhoLikedThisUser;
+
+    @ManyToOne
+    private User currentUser;
 
 
     //---------------image--------------------
-    @Column(name= "userImage")
-     private String userImage;
+    @Column(name = "userImage")
+    private String userImage;
 
     //-----------------------------------
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
@@ -88,7 +92,7 @@ public class User {
         this.profileImages = new ArrayList<>();
         this.matches = new ArrayList<>();
         this.matchedWiths = new ArrayList<>();
-//        this.peopleLiked = new ArrayList<>();
+        this.peopleWhoLikedThisUser = new ArrayList<>();
         this.conversations = new ArrayList<>();
         this.conversations = new ArrayList<>();
     }
@@ -185,15 +189,21 @@ public class User {
         this.matches = matches;
     }
 
-    //
-//    public List<User> getPeopleLiked() {
-//        return peopleLiked;
-//    }
-//
-//    public void setPeopleLiked(List<User> peopleLiked) {
-//        this.peopleLiked = peopleLiked;
-//    }
+    public List<User> getPeopleWhoLikedThisUser() {
+        return peopleWhoLikedThisUser;
+    }
 
+    public void setPeopleWhoLikedThisUser(List<User> peopleWhoLikedThisUser) {
+        this.peopleWhoLikedThisUser = peopleWhoLikedThisUser;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
 
     public List<Conversation> getConversations() {
         return conversations;
