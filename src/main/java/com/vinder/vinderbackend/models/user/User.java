@@ -1,5 +1,6 @@
 package com.vinder.vinderbackend.models.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.vinder.vinderbackend.models.conversation.Conversation;
 import com.vinder.vinderbackend.models.conversation.Participant;
@@ -46,22 +47,22 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-    @ManyToMany
-    @JoinTable(
-            name = "matches",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<User> peopleMatched;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "matches",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private List<User> peopleMatched;
 //    private List<User> peopleLiked;
 
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Conversation> conversations;
 
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Participant> participants;
 
