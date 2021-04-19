@@ -55,14 +55,6 @@ public class User {
     @OneToMany(mappedBy = "matchedUser")
     private List<Match> matchedWiths;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "matches",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "matched_user_id")
-//    )
-//    private List<User> matchedUsers;
-
 //    private List<User> peopleLiked;
 
 

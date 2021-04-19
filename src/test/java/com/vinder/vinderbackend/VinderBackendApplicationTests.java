@@ -55,21 +55,21 @@ class VinderBackendApplicationTests {
         User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true, ExampleImage.base64);
         userRepository.save(james);
 
-        Match match1 = new Match(doug, james);
+        Match match1 = new Match(james, barry);
         matchRepository.save(match1);
 
-        Match match2 = new Match(doug, james);
+        Match match2 = new Match(james, doug);
         matchRepository.save(match2);
 
         System.out.println(james.getId());
 
-        List<User> users = userRepository.matchedUsersForSpecificUser(18L);
+        List<User> users = userRepository.matchedUsersForSpecificUser(16L);
 
         for (int i = 0; i < users.size(); i++) {
-            System.out.println(userRepository.matchedUsersForSpecificUser(18L).get(i).getName());
+            System.out.println(users.get(i).getName());
         }
 
-//        System.out.println(userRepository.matchedUsersForSpecificUser(18L));
+        System.out.println(users);
 
     }
 
