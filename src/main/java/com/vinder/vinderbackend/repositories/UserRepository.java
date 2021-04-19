@@ -6,15 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryCustom {
 
     //GET All Users By Gender
 
     List<User> findByGender(Gender gender);
 
-
-    List<User> findByMatches();
-
-
-
+    List<User> matchedUsersForSpecificUser(Long userId);
 }

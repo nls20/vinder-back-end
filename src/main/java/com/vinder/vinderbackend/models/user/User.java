@@ -49,13 +49,19 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-    @ManyToMany(mappedBy = "user")
-    @JoinTable(
-            name = "user_matches",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "match_id")
-    )
+    @OneToMany(mappedBy = "user")
     private List<Match> matches;
+
+    @OneToMany(mappedBy = "matchedUser")
+    private List<Match> matchedWiths;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name = "matches",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "matched_user_id")
+//    )
+//    private List<User> matchedUsers;
 
 //    private List<User> peopleLiked;
 
@@ -191,5 +197,13 @@ public class User {
 
     public void setParticipants(List<Participant> participants) {
         this.participants = participants;
+    }
+
+    public List<Match> getMatchedWiths() {
+        return matchedWiths;
+    }
+
+    public void setMatchedWiths(List<Match> matchedWiths) {
+        this.matchedWiths = matchedWiths;
     }
 }
