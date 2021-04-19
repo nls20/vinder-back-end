@@ -15,50 +15,12 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToMany(mappedBy = "matches")
     @JsonIgnoreProperties({"matches"})
-    private User currentUser;
+    private List<User> users;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnoreProperties({"matches"})
-    private User matchedUser;
-
-    @Column(name = "conversation_history")
-    private List<String> conversationHistory;
-
-    public Match(User currentUser, User matchedUser) {
-        this.currentUser = currentUser;
-        this.matchedUser = matchedUser;
-        this.conversationHistory = new ArrayList<>();
-    }
 
     public Match() {
-    }
-
-    public User getCurrentUser() {
-        return currentUser;
-    }
-
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
-    }
-
-    public User getMatchedUser() {
-        return matchedUser;
-    }
-
-    public void setMatchedUser(User matchedUser) {
-        this.matchedUser = matchedUser;
-    }
-
-    public List<String> getConversationHistory() {
-        return conversationHistory;
-    }
-
-    public void setConversationHistory(List<String> conversationHistory) {
-        this.conversationHistory = conversationHistory;
     }
 
     public Long getId() {
@@ -69,6 +31,11 @@ public class Match {
         this.id = id;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
 
-
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 }
