@@ -1,6 +1,7 @@
 package com.vinder.vinderbackend.models.matches;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.vinder.vinderbackend.models.conversation.Message;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
@@ -26,7 +27,7 @@ public class Match {
     private User matchedUser;
 
     @OneToMany
-    private List<MessageHistory> messages;
+    private List<Message> messages;
 
     public Match(User currentUser, User matchedUser) {
         this.currentUser = currentUser;
