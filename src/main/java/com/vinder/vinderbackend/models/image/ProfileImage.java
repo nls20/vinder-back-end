@@ -13,8 +13,12 @@ public class ProfileImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
+    byte[] content;
+
+
     @Column(name = "image_url")
-    private String imageURL;
+    private String name;
 
     @ManyToOne
     @JsonBackReference
@@ -24,10 +28,28 @@ public class ProfileImage {
     public ProfileImage() {
     }
 
-    public ProfileImage(String imageURL, User user) {
-        this.imageURL = imageURL;
+
+    public ProfileImage(String name, User user) {
+        this.name = name;
         this.user = user;
     }
+
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 
     public Long getId() {
         return id;
@@ -37,13 +59,6 @@ public class ProfileImage {
         this.id = id;
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
 
     public User getUser() {
         return user;
