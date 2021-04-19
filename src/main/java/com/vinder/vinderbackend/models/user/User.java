@@ -53,9 +53,12 @@ public class User {
     private List<Match> matches;
 
     //    private List<User> peopleLiked;
-//---------------image--------------------
-   @Lob
-   byte[] content;
+
+
+    //---------------image--------------------
+    @Column(name= "userImage")
+     private String userImage;
+   
     //-----------------------------------
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @JsonManagedReference
@@ -70,7 +73,7 @@ public class User {
     public User() {
     }
 
-    public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated) {
+    public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated, String userImage) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -78,12 +81,24 @@ public class User {
         this.gender_preference = gender_preference;
         this.bio = bio;
         this.vaccinated = vaccinated;
+        this.userImage = userImage;
         this.profileImages = new ArrayList<>();
         this.matches = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
         this.conversations = new ArrayList<>();
         this.conversations = new ArrayList<>();
     }
+    //------------------------------------------
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+
+    //---------------------------------------------
 
     public Long getId() {
         return id;
@@ -93,17 +108,6 @@ public class User {
         this.id = id;
     }
 
-//------------------image------------------------
-
-    public byte[] getContent() {
-        return content;
-    }
-
-    public void setContent(byte[] content) {
-        this.content = content;
-    }
-
-    //----------------------------------------------
 
     public String getName() {
         return name;

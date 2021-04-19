@@ -57,27 +57,6 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-//------------------Image------------------------------------------------
-    @PostMapping
-    Long uploadImage(@RequestParam MultipartFile multipartImage) throws Exception {
-        User image = new User();
-        image.setName(multipartImage.getName());
-        image.setContent(multipartImage.getBytes());
-
-        return userRepository.save(image)
-                .getId();
-    }
-
-    @GetMapping(value = "/users/{imageId}", produces = MediaType.IMAGE_JPEG_VALUE)
-    ByteArrayResource downloadImage(@PathVariable Long userId) {
-        byte[] image = userRepository.findById(userId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND))
-                .getContent();
-
-        return new ByteArrayResource(image);
-    }
-
-    //-------------------------------------------------------------------------------------
 
     @PutMapping(value = "/users/{id}")
     public ResponseEntity<User> putUser(@RequestBody User user, @PathVariable Long id) {
