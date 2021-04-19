@@ -23,9 +23,15 @@ public class MatchController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping(value = "/{id}/all-matches")
+    @GetMapping(value = "/matches/{id}/all-matches")
     public ResponseEntity<List<User>> getAllMatches(@PathVariable Long id){
-        return new ResponseEntity<>(userRepository.findByMatches(), HttpStatus.OK);
+        return new ResponseEntity<>(userRepository.findByMatchesCurrentUserId(id), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/matches/{id}/{target}/conversation")
+    public ResponseEntity<List<String>> getConversationHistory(@PathVariable Long id,
+                                                               @PathVariable Long target){
+
     }
 
 }

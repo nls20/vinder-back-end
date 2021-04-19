@@ -15,43 +15,53 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnoreProperties({"matches"})
-    private User currentUser;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", nullable = false)
+//    @JsonIgnoreProperties({"matches"})
+//    private User currentUser;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnoreProperties({"matches"})
-    private User matchedUser;
+    private List<User> users;
+//    private User matchedUser;
 
     @Column(name = "conversation_history")
     private List<String> conversationHistory;
 
     public Match(User currentUser, User matchedUser) {
-        this.currentUser = currentUser;
-        this.matchedUser = matchedUser;
+        this.users = new ArrayList<>();
+        this.users.add(currentUser);
+        this.users.add(matchedUser);
         this.conversationHistory = new ArrayList<>();
     }
 
     public Match() {
     }
 
-    public User getCurrentUser() {
-        return currentUser;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
-    public User getMatchedUser() {
-        return matchedUser;
-    }
-
-    public void setMatchedUser(User matchedUser) {
-        this.matchedUser = matchedUser;
-    }
+    //    public User getCurrentUser() {
+//        return currentUser;
+//    }
+//
+//    public void setCurrentUser(User currentUser) {
+//        this.currentUser = currentUser;
+//    }
+//
+//    public User getMatchedUser() {
+//        return matchedUser;
+//    }
+//
+//    public void setMatchedUser(User matchedUser) {
+//        this.matchedUser = matchedUser;
+//    }
 
     public List<String> getConversationHistory() {
         return conversationHistory;
@@ -68,7 +78,6 @@ public class Match {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
 }

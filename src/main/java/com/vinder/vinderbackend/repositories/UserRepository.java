@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByGender(Gender gender);
 
 
-    List<User> findByMatches();
+    List<User> findByMatchesCurrentUserId(long id);
 
 
 
