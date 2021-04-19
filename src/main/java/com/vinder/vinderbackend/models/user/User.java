@@ -49,8 +49,12 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-    @OneToMany(mappedBy = "user")
-    @JsonIgnoreProperties({"users"})
+    @ManyToMany(mappedBy = "user")
+    @JoinTable(
+            name = "user_matches",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "match_id")
+    )
     private List<Match> matches;
 
 //    private List<User> peopleLiked;
