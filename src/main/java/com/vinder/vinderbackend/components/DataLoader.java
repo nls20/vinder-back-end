@@ -70,8 +70,8 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(james);
 
 
-//        ProfileImage picture1 = new ProfileImage("image1.png", mark);
-//        profileImageRepository.save(picture1);
+        ProfileImage picture1 = new ProfileImage("image1.png", mark);
+        profileImageRepository.save(picture1);
 //
 //        ProfileImage picture2 = new ProfileImage("image1.png", mark);
 //        profileImageRepository.save(picture2);
