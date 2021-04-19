@@ -22,45 +22,45 @@ public class UserController {
      *
      */
 
-    @GetMapping(value = "/users")
-    public ResponseEntity<User> getAUser(
-            @RequestParam(required = false, name="gender") Gender gender
-    ) {
-        //returns all users by gender
-        if(gender != null) {
-            List<User> allOfGender = userRepository.findByGender(gender);
-            return new ResponseEntity(allOfGender, HttpStatus.OK);
-        }
-
-        //returns all users
-        return new ResponseEntity(userRepository.findAll(), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/users/{id}")
-    public ResponseEntity getAUser(@PathVariable Long id) {
-        return new ResponseEntity(userRepository.findById(id), HttpStatus.OK);
-    }
-
-//    @GetMapping(value = "/users/{id}/matches")
-//    public ResponseEntity<List<User>> getAllUserMatches(@PathVariable Long id){
-//        return new ResponseEntity<>()
+//    @GetMapping(value = "/users")
+//    public ResponseEntity<User> getAUser(
+//            @RequestParam(required = false, name="gender") Gender gender
+//    ) {
+//        //returns all users by gender
+//        if(gender != null) {
+//            List<User> allOfGender = userRepository.findByGender(gender);
+//            return new ResponseEntity(allOfGender, HttpStatus.OK);
+//        }
+//
+//        //returns all users
+//        return new ResponseEntity(userRepository.findAll(), HttpStatus.OK);
 //    }
-
-    @PostMapping(value = "/users")
-    public ResponseEntity<User> postUser(@RequestBody User user) {
-        userRepository.save(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
-    }
-
-    @PutMapping(value = "/users/{id}")
-    public ResponseEntity<User> putUser(@RequestBody User user, @PathVariable Long id) {
-        userRepository.save(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
-    }
-
-    @DeleteMapping(value = "/users/{id}")
-    public ResponseEntity<List<User>> deleteUser(@PathVariable Long id) {
-        userRepository.deleteById(id);
-        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
-    }
+//
+//    @GetMapping(value = "/users/{id}")
+//    public ResponseEntity getAUser(@PathVariable Long id) {
+//        return new ResponseEntity(userRepository.findById(id), HttpStatus.OK);
+//    }
+//
+////    @GetMapping(value = "/users/{id}/matches")
+////    public ResponseEntity<List<User>> getAllUserMatches(@PathVariable Long id){
+////        return new ResponseEntity<>()
+////    }
+//
+//    @PostMapping(value = "/users")
+//    public ResponseEntity<User> postUser(@RequestBody User user) {
+//        userRepository.save(user);
+//        return new ResponseEntity<>(user, HttpStatus.CREATED);
+//    }
+//
+//    @PutMapping(value = "/users/{id}")
+//    public ResponseEntity<User> putUser(@RequestBody User user, @PathVariable Long id) {
+//        userRepository.save(user);
+//        return new ResponseEntity<>(user, HttpStatus.CREATED);
+//    }
+//
+//    @DeleteMapping(value = "/users/{id}")
+//    public ResponseEntity<List<User>> deleteUser(@PathVariable Long id) {
+//        userRepository.deleteById(id);
+//        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+//    }
 }

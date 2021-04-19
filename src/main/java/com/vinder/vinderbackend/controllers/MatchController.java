@@ -23,9 +23,9 @@ public class MatchController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping(value = "/{id}/all-matches")
-    public ResponseEntity<List<User>> getAllMatches(@PathVariable Long id){
-        return new ResponseEntity<>(userRepository.findByMatches(), HttpStatus.OK);
-    }
+//    @GetMapping(value = "/{id}/all-matches")
+//    public ResponseEntity<List<User>> getAllMatches(@PathVariable Long id){
+//        return new ResponseEntity<>(userRepository.findByMatches(), HttpStatus.OK);
+//    }
 
 }

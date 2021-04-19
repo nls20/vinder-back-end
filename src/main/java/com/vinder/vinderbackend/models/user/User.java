@@ -49,7 +49,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "currentUser")
     @JsonIgnoreProperties({"users"})
     private List<Match> matches;
 

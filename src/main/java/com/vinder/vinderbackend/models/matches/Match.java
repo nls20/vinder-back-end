@@ -16,22 +16,22 @@ public class Match {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "current_user_id", nullable = false)
     @JsonIgnoreProperties({"matches"})
     private User currentUser;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "target_user_id", nullable = false)
     @JsonIgnoreProperties({"matches"})
     private User matchedUser;
 
-    @Column(name = "conversation_history")
-    private List<String> conversationHistory;
+    @OneToMany
+    private List<MessageHistory> messages;
 
     public Match(User currentUser, User matchedUser) {
         this.currentUser = currentUser;
         this.matchedUser = matchedUser;
-        this.conversationHistory = new ArrayList<>();
+        messages = new ArrayList<>();
     }
 
     public Match() {
