@@ -1,5 +1,6 @@
 package com.vinder.vinderbackend.components;
 
+import com.vinder.vinderbackend.Service.ExampleImage;
 import com.vinder.vinderbackend.models.conversation.Conversation;
 import com.vinder.vinderbackend.models.conversation.Message;
 import com.vinder.vinderbackend.models.conversation.Participant;
@@ -38,31 +39,31 @@ public class DataLoader implements ApplicationRunner {
 
         //USERS
 
-        User mark = new User("Mark", 33, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true);
+        User mark = new User("Mark", 33, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true, ExampleImage.base64);
         userRepository.save(mark);
 
-        User david = new User("David", 24, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true);
+        User david = new User("David", 24, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true, ExampleImage.base64);
         userRepository.save(david);
 
-        User natalie = new User("Natalie", 30, Gender.FEMALE, "Glasgow", Gender.MALE, "Programming", true);
+        User natalie = new User("Natalie", 30, Gender.FEMALE, "Glasgow", Gender.MALE, "Programming", true, ExampleImage.base64);
         userRepository.save(natalie);
 
-        User harrison = new User("Harrison", 23, Gender.MALE, "Alderran", Gender.FEMALE, "Killing bad guys", true);
+        User harrison = new User("Harrison", 23, Gender.MALE, "Alderran", Gender.FEMALE, "Killing bad guys", true, ExampleImage.base64);
         userRepository.save(harrison);
 
-        User bill = new User("Bill", 50, Gender.MALE, "Glasgow", Gender.FEMALE, "Swimming", true);
+        User bill = new User("Bill", 50, Gender.MALE, "Glasgow", Gender.FEMALE, "Swimming", true, ExampleImage.base64);
         userRepository.save(bill);
 
-        User mike = new User("Mike", 45, Gender.MALE, "Edinburgh", Gender.FEMALE, "Cycling", true);
+        User mike = new User("Mike", 45, Gender.MALE, "Edinburgh", Gender.FEMALE, "Cycling", true, ExampleImage.base64);
         userRepository.save(mike);
 
-        User doug = new User("Doug", 25, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        User doug = new User("Doug", 25, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true, ExampleImage.base64);
         userRepository.save(doug);
 
-        User barry = new User("Barry", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        User barry = new User("Barry", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true, ExampleImage.base64);
         userRepository.save(barry);
 
-        User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true, ExampleImage.base64);
         userRepository.save(james);
 
 

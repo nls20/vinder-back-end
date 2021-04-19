@@ -4,10 +4,15 @@ import com.vinder.vinderbackend.models.user.Gender;
 import com.vinder.vinderbackend.models.user.User;
 import com.vinder.vinderbackend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.awt.*;
 import java.util.List;
 
 @RestController
@@ -51,6 +56,7 @@ public class UserController {
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
+
 
     @PutMapping(value = "/users/{id}")
     public ResponseEntity<User> putUser(@RequestBody User user, @PathVariable Long id) {
