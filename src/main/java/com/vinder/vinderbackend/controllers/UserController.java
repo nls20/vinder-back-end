@@ -18,7 +18,7 @@ public class UserController {
 
     /**
      * GET /users
-     * GET /users?gender=male
+     * GET /users?gender=MALE
      *
      */
 
@@ -28,7 +28,7 @@ public class UserController {
     ) {
         //returns all users by gender
         if(gender != null) {
-            List<User> allOfGender = userRepository.findAllUsersByGender(gender);
+            List<User> allOfGender = userRepository.findByGender(gender);
             return new ResponseEntity(allOfGender, HttpStatus.OK);
         }
 

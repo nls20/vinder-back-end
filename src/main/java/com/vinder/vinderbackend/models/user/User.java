@@ -1,6 +1,8 @@
 package com.vinder.vinderbackend.models.user;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.vinder.vinderbackend.models.conversation.Conversation;
+import com.vinder.vinderbackend.models.conversation.Participant;
 import com.vinder.vinderbackend.models.image.ProfileImage;
 import org.hibernate.annotations.Cascade;
 
@@ -16,7 +18,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -53,6 +55,16 @@ public class User {
     private List<User> peopleMatched;
 //    private List<User> peopleLiked;
 
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<Conversation> conversations;
+
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<Participant> participants;
+
     public User() {
     }
 
@@ -67,14 +79,16 @@ public class User {
         this.profileImages = new ArrayList<>();
 //        this.peopleMatched = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
+        this.conversations = new ArrayList<>();
+        this.conversations = new ArrayList<>();
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -156,4 +170,21 @@ public class User {
 //    public void setPeopleLiked(List<User> peopleLiked) {
 //        this.peopleLiked = peopleLiked;
 //    }
+
+
+    public List<Conversation> getConversations() {
+        return conversations;
+    }
+
+    public void setConversations(List<Conversation> conversations) {
+        this.conversations = conversations;
+    }
+
+    public List<Participant> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<Participant> participants) {
+        this.participants = participants;
+    }
 }
