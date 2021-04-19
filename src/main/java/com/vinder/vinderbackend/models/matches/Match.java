@@ -12,14 +12,6 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "matching",
-//            joinColumns = @JoinColumn(name = "match_id"),
-//            inverseJoinColumns = @JoinColumn(name = "user_id")
-//    )
-//    private List<User> users;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -59,12 +51,4 @@ public class Match {
     public void setUser(User user) {
         this.user = user;
     }
-
-//    public List<User> getUsers() {
-//        return users;
-//    }
-//
-//    public void setUsers(List<User> users) {
-//        this.users = users;
-//    }
 }

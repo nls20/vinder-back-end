@@ -12,6 +12,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,15 +56,11 @@ public class User {
     @OneToMany(mappedBy = "matchedUser")
     private List<Match> matchedWiths;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "matches",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "matched_user_id")
-//    )
-//    private List<User> matchedUsers;
+    @OneToMany(mappedBy = "currentUser")
+    private List<User> peopleWhoLikedThisUser;
 
-//    private List<User> peopleLiked;
+    @ManyToOne
+    private User currentUser;
 
 
     //---------------image--------------------
@@ -94,7 +91,8 @@ public class User {
         this.vaccinated = vaccinated;
         this.profileImages = new ArrayList<>();
         this.matches = new ArrayList<>();
-//        this.peopleLiked = new ArrayList<>();
+        this.matchedWiths = new ArrayList<>();
+        this.peopleWhoLikedThisUser = new ArrayList<>();
         this.conversations = new ArrayList<>();
         this.conversations = new ArrayList<>();
     }
@@ -191,15 +189,21 @@ public class User {
         this.matches = matches;
     }
 
-    //
-//    public List<User> getPeopleLiked() {
-//        return peopleLiked;
-//    }
-//
-//    public void setPeopleLiked(List<User> peopleLiked) {
-//        this.peopleLiked = peopleLiked;
-//    }
+    public List<User> getPeopleWhoLikedThisUser() {
+        return peopleWhoLikedThisUser;
+    }
 
+    public void setPeopleWhoLikedThisUser(List<User> peopleWhoLikedThisUser) {
+        this.peopleWhoLikedThisUser = peopleWhoLikedThisUser;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
 
     public List<Conversation> getConversations() {
         return conversations;
