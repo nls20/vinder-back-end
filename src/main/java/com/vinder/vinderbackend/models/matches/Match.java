@@ -1,11 +1,8 @@
 package com.vinder.vinderbackend.models.matches;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "matches")
@@ -15,14 +12,26 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(mappedBy = "matches")
-    @JoinTable(
-            name = "user_matches",
-            joinColumns = @JoinColumn(name = "match_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<User> users;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "matching",
+//            joinColumns = @JoinColumn(name = "match_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private List<User> users;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "matched_user_id")
+    private User matchedUser;
+
+    public Match(User user, User matchedUser) {
+        this.user = user;
+        this.matchedUser = matchedUser;
+    }
 
     public Match() {
     }
@@ -35,11 +44,27 @@ public class Match {
         this.id = id;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public User getMatchedUser() {
+        return matchedUser;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setMatchedUser(User matchedUser) {
+        this.matchedUser = matchedUser;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+//    public List<User> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(List<User> users) {
+//        this.users = users;
+//    }
 }
