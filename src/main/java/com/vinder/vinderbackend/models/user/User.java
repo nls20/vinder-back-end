@@ -52,8 +52,11 @@ public class User {
     @JsonIgnoreProperties({"users"})
     private List<Match> matches;
 
-//    private List<User> peopleLiked;
-
+    //    private List<User> peopleLiked;
+//---------------image--------------------
+   @Lob
+   byte[] content;
+    //-----------------------------------
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @JsonManagedReference
     @OneToMany(mappedBy = "user")
@@ -89,6 +92,18 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+//------------------image------------------------
+
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
+    //----------------------------------------------
 
     public String getName() {
         return name;
