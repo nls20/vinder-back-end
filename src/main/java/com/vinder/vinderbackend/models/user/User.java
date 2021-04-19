@@ -12,12 +12,13 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,7 +56,7 @@ public class User {
     @OneToMany(mappedBy = "matchedUser")
     private List<Match> matchedWiths;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "currentUser")
     private List<User> peopleWhoLikedThisUser;
 
     @ManyToOne
