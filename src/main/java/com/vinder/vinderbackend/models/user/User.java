@@ -1,9 +1,11 @@
 package com.vinder.vinderbackend.models.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.vinder.vinderbackend.models.conversation.Conversation;
 import com.vinder.vinderbackend.models.conversation.Participant;
 import com.vinder.vinderbackend.models.image.ProfileImage;
+import com.vinder.vinderbackend.models.matches.Match;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.Entity;
@@ -46,13 +48,10 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-    @ManyToMany
-    @JoinTable(
-            name = "matches",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<User> peopleMatched;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({"users"})
+    private List<Match> matches;
+
 //    private List<User> peopleLiked;
 
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
@@ -77,7 +76,7 @@ public class User {
         this.bio = bio;
         this.vaccinated = vaccinated;
         this.profileImages = new ArrayList<>();
-//        this.peopleMatched = new ArrayList<>();
+        this.matches = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
         this.conversations = new ArrayList<>();
         this.conversations = new ArrayList<>();
@@ -155,14 +154,15 @@ public class User {
         this.profileImages = profileImages;
     }
 
-//    public List<User> getPeopleMatched() {
-//        return peopleMatched;
-//    }
-//
-//    public void setPeopleMatched(List<User> peopleMatched) {
-//        this.peopleMatched = peopleMatched;
-//    }
-//
+    public List<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
+    //
 //    public List<User> getPeopleLiked() {
 //        return peopleLiked;
 //    }

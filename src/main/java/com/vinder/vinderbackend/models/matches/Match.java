@@ -15,22 +15,51 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnoreProperties({"matches"})
     private User currentUser;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnoreProperties({"matches"})
     private User matchedUser;
 
-//    @OneToMany(mappedBy = "matches")
-//    @JsonIgnoreProperties({"matches"})
-//    private List<User> matches;
 
     @Column(name = "conversation_history")
     private List<String> conversationHistory;
 
+    public Match(User currentUser, User matchedUser) {
+        this.currentUser = currentUser;
+        this.matchedUser = matchedUser;
+    }
 
+    public Match() {
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public User getMatchedUser() {
+        return matchedUser;
+    }
+
+    public void setMatchedUser(User matchedUser) {
+        this.matchedUser = matchedUser;
+    }
+
+    public List<String> getConversationHistory() {
+        return conversationHistory;
+    }
+
+    public void setConversationHistory(List<String> conversationHistory) {
+        this.conversationHistory = conversationHistory;
+    }
 
     public Long getId() {
         return id;
@@ -42,11 +71,4 @@ public class Match {
 
 
 
-//    public List<User> getMatches() {
-//        return matches;
-//    }
-//
-//    public void setMatches(List<User> matches) {
-//        this.matches = matches;
-//    }
 }
