@@ -44,7 +44,13 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-//    private List<User> peopleMatched;
+    @ManyToMany
+    @JoinTable(
+            name = "matches",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> peopleMatched;
 //    private List<User> peopleLiked;
 
     public User() {
