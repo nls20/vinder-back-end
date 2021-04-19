@@ -25,13 +25,13 @@ public class Match {
     @JsonIgnoreProperties({"matches"})
     private User matchedUser;
 
-
     @Column(name = "conversation_history")
     private List<String> conversationHistory;
 
     public Match(User currentUser, User matchedUser) {
         this.currentUser = currentUser;
         this.matchedUser = matchedUser;
+        this.conversationHistory = new ArrayList<>();
     }
 
     public Match() {
