@@ -67,8 +67,8 @@ public class User {
 
 
     //---------------image--------------------
-    @Column(name= "userImage")
-     private String userImage;
+//    @Column(name= "userImage")
+//     private String userImage;
 
     //-----------------------------------
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
@@ -84,7 +84,7 @@ public class User {
     public User() {
     }
 
-    public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated, String userImage) {
+    public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -92,7 +92,6 @@ public class User {
         this.gender_preference = gender_preference;
         this.bio = bio;
         this.vaccinated = vaccinated;
-        this.userImage = userImage;
         this.profileImages = new ArrayList<>();
         this.matches = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
@@ -101,13 +100,13 @@ public class User {
     }
     //------------------------------------------
 
-    public String getUserImage() {
-        return userImage;
-    }
-
-    public void setUserImage(String userImage) {
-        this.userImage = userImage;
-    }
+//    public String getUserImage() {
+//        return userImage;
+//    }
+//
+//    public void setUserImage(String userImage) {
+//        this.userImage = userImage;
+//    }
 
     //---------------------------------------------
 
