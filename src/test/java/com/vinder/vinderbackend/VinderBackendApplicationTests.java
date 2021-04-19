@@ -56,11 +56,12 @@ class VinderBackendApplicationTests {
 		Match match1 = new Match(james, barry);
 		matchRepository.save(match1);
 
-		Match match2 = new Match(doug, james);
+		Match match2 = new Match(james, doug);
+		matchRepository.save(match2);
 
 		System.out.println(james.getId());
 
-		System.out.println(userRepository.matchedUsersForSpecificUser(17L));
+		System.out.println(userRepository.matchedUsersForSpecificUser(18L));
 
 	}
 
