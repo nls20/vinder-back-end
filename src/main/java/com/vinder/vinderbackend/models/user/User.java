@@ -57,8 +57,14 @@ public class User {
     )
     private List<Match> matches;
 
-//    private List<User> peopleLiked;
+    //    private List<User> peopleLiked;
 
+
+    //---------------image--------------------
+    @Column(name= "userImage")
+     private String userImage;
+   
+    //-----------------------------------
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @JsonIgnore
     @OneToMany(mappedBy = "user")
@@ -72,7 +78,7 @@ public class User {
     public User() {
     }
 
-    public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated) {
+    public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated, String userImage) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -80,12 +86,24 @@ public class User {
         this.gender_preference = gender_preference;
         this.bio = bio;
         this.vaccinated = vaccinated;
+        this.userImage = userImage;
         this.profileImages = new ArrayList<>();
         this.matches = new ArrayList<>();
 //        this.peopleLiked = new ArrayList<>();
         this.conversations = new ArrayList<>();
         this.conversations = new ArrayList<>();
     }
+    //------------------------------------------
+
+    public String getUserImage() {
+        return userImage;
+    }
+
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+
+    //---------------------------------------------
 
     public Long getId() {
         return id;
@@ -94,6 +112,7 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public String getName() {
         return name;
