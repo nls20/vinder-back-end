@@ -1,7 +1,9 @@
 package com.vinder.vinderbackend;
 
+import com.vinder.vinderbackend.models.matches.Match;
 import com.vinder.vinderbackend.models.user.Gender;
 import com.vinder.vinderbackend.models.user.User;
+import com.vinder.vinderbackend.repositories.MatchRepository;
 import com.vinder.vinderbackend.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,9 @@ class VinderBackendApplicationTests {
 
 	@Autowired
 	UserRepository userRepository;
+
+	@Autowired
+	MatchRepository matchRepository;
 
 	@Test
 	void contextLoads() {
@@ -47,7 +52,14 @@ class VinderBackendApplicationTests {
 		User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
 		userRepository.save(james);
 
+		Match match1 = new Match(james, barry);
+		matchRepository.save(match1);
 
+		Match match2 = new Match(doug, james);
+
+		System.out.println(james.getId());
+
+		System.out.println(userRepository.matchedUsersForSpecificUser(17L));
 
 	}
 

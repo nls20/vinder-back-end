@@ -1,11 +1,8 @@
 package com.vinder.vinderbackend.models.matches;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "matches")
@@ -31,6 +28,10 @@ public class Match {
     @JoinColumn(name = "matched_user_id")
     private User matchedUser;
 
+    public Match(User user, User matchedUser) {
+        this.user = user;
+        this.matchedUser = matchedUser;
+    }
 
     public Match() {
     }
