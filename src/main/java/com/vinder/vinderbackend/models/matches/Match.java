@@ -15,8 +15,12 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "matches")
-    @JsonIgnoreProperties({"matches"})
+    @ManyToMany(mappedBy = "matches")
+    @JoinTable(
+            name = "user_matches",
+            joinColumns = @JoinColumn(name = "match_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
     private List<User> users;
 
 
