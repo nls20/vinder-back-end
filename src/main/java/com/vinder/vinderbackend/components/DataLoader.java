@@ -60,17 +60,17 @@ public class DataLoader implements ApplicationRunner {
         User mike = new User("Mike", 45, Gender.MALE, "Edinburgh", Gender.FEMALE, "Cycling", true);
         userRepository.save(mike);
 
-        User doug = new User("Doug", 25, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
-        userRepository.save(doug);
+      //  User doug = new User("Doug", 25, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+       // userRepository.save(doug);
 
-        User barry = new User("Barry", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
-        userRepository.save(barry);
+    //    User barry = new User("Barry", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+     //   userRepository.save(barry);
 
-        User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
-        userRepository.save(james);
+     //   User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+      //  userRepository.save(james);
 
 
-        ProfileImage picture1 = new ProfileImage("image1.png", mark);
+        ProfileImage picture1 = new ProfileImage("https://cdn.mos.cms.futurecdn.net/Rc3HBZyZDFLZR5VY6dd2LA.jpg", mark);
         profileImageRepository.save(picture1);
 //
 //        ProfileImage picture2 = new ProfileImage("image1.png", mark);
@@ -123,11 +123,11 @@ public class DataLoader implements ApplicationRunner {
 
         //MATCHES
 
-        Match match1 = new Match(james, barry);
-        matchRepository.save(match1);
+      //  Match match1 = new Match(james, barry);
+      //  matchRepository.save(match1);
 
-        Match match2 = new Match(doug, james);
-        matchRepository.save(match2);
+      //  Match match2 = new Match(doug, james);
+      //  matchRepository.save(match2);
 
     }
 

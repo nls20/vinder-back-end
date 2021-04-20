@@ -31,7 +31,7 @@ public class ProfileImageController {
                 .getId();
     }
 
-    @GetMapping(value = "/image/{imageId}", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/profileImagea/{imageId}", produces = MediaType.IMAGE_JPEG_VALUE)
     Resource downloadImage(@PathVariable Long imageId) {
         byte[] image = profileImageRepository.findById(imageId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND))

@@ -25,6 +25,7 @@ public class ProfileImage {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+
     public ProfileImage() {
     }
 
