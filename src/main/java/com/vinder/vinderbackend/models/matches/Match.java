@@ -3,6 +3,7 @@ package com.vinder.vinderbackend.models.matches;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
+import java.util.Map;
 
 @Entity
 @Table(name = "matches")
@@ -19,6 +20,10 @@ public class Match {
     @ManyToOne
     @JoinColumn(name = "matched_user_id")
     private User matchedUser;
+
+    @ManyToMany
+    private Map<User, User> matchedMap;
+
 
     public Match(User user, User matchedUser) {
         this.user = user;
