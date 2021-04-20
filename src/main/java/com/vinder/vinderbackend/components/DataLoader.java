@@ -70,7 +70,7 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(james);
 
 
-        ProfileImage picture1 = new ProfileImage("image1.png", mark);
+        ProfileImage picture1 = new ProfileImage("https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/09/09/11/markzuckerberg.jpg?width=1200", mark);
         profileImageRepository.save(picture1);
 
 //        ProfileImage picture2 = new ProfileImage("image1.png", mark);

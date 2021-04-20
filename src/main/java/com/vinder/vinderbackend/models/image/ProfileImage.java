@@ -13,12 +13,9 @@ public class ProfileImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Lob
-    byte[] content;
 
-
-    @Column(name = "image_url")
-    private String name;
+    @Column(name = "mongo_id")
+    private String mongoId;
 
     @ManyToOne
     @JsonBackReference
@@ -29,28 +26,18 @@ public class ProfileImage {
     public ProfileImage() {
     }
 
-
-    public ProfileImage(String name, User user) {
-        this.name = name;
+    public ProfileImage(String mongoId, User user) {
+        this.mongoId = mongoId;
         this.user = user;
     }
 
-    public byte[] getContent() {
-        return content;
+    public String getMongoId() {
+        return mongoId;
     }
 
-    public void setContent(byte[] content) {
-        this.content = content;
+    public void setMongoId(String mongoId) {
+        this.mongoId = mongoId;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
     public Long getId() {
         return id;

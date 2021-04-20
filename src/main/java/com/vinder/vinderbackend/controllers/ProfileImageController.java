@@ -1,6 +1,8 @@
 package com.vinder.vinderbackend.controllers;
 
+import com.vinder.vinderbackend.models.conversation.Participant;
 import com.vinder.vinderbackend.models.image.ProfileImage;
+import com.vinder.vinderbackend.models.user.User;
 import com.vinder.vinderbackend.repositories.ProfileImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -21,22 +23,14 @@ public class ProfileImageController {
     @Autowired
     ProfileImageRepository profileImageRepository;
 
-    @PostMapping(value="/profileImage")
-    Long uploadImage(@RequestParam MultipartFile multipartImage) throws Exception {
-        ProfileImage dbImage = new ProfileImage();
-        dbImage.setName(multipartImage.getName());
-        dbImage.setContent(multipartImage.getBytes());
-
-        return profileImageRepository.save(dbImage)
-                .getId();
+    @GetMapping(value = "/profileImage")
+    public ResponseEntity<ProfileImage> getAllProfileImages() {
+        return new ResponseEntity(profileImageRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/profileImage/{imageId}", produces = MediaType.IMAGE_JPEG_VALUE)
-    Resource downloadImage(@PathVariable Long imageId) {
-        byte[] image = profileImageRepository.findById(imageId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND))
-                .getContent();
-
-        return new ByteArrayResource(image);
+    @PostMapping(value = "/profileImage")
+    public ResponseEntity<ProfileImage> postUser(@RequestBody ProfileImage profileImage) {
+        profileImageRepository.save(profileImage);
+        return new ResponseEntity<>(profileImage, HttpStatus.CREATED);
     }
 }
