@@ -21,7 +21,7 @@ public class ProfileImageController {
     @Autowired
     ProfileImageRepository profileImageRepository;
 
-    @PostMapping
+    @PostMapping(value="/profileImage")
     Long uploadImage(@RequestParam MultipartFile multipartImage) throws Exception {
         ProfileImage dbImage = new ProfileImage();
         dbImage.setName(multipartImage.getName());
@@ -31,7 +31,7 @@ public class ProfileImageController {
                 .getId();
     }
 
-    @GetMapping(value = "/profileImagea/{imageId}", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/profileImage/{imageId}", produces = MediaType.IMAGE_JPEG_VALUE)
     Resource downloadImage(@PathVariable Long imageId) {
         byte[] image = profileImageRepository.findById(imageId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND))

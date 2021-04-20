@@ -60,7 +60,6 @@ public class ProfileImage {
         this.id = id;
     }
 
-
     public User getUser() {
         return user;
     }
