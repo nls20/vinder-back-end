@@ -50,11 +50,17 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
-    @OneToMany(mappedBy = "user")
-    private List<Match> matches;
+
 
     @OneToMany(mappedBy = "matchedUser")
+    @JsonIgnoreProperties({"matchedUser"})
+    private List<Match> matches;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({"user"})
     private List<Match> matchedWiths;
+
+
 
     @OneToMany(mappedBy = "currentUser")
     private List<User> peopleWhoLikedThisUser;

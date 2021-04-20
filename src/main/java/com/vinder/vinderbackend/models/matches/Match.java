@@ -1,5 +1,7 @@
 package com.vinder.vinderbackend.models.matches;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
@@ -13,10 +15,12 @@ public class Match {
     private Long id;
 
     @ManyToOne
+    @JsonIgnoreProperties({"matches", "matchedWiths"})
     @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
+    @JsonIgnoreProperties({"matches", "matchedWiths"})
     @JoinColumn(name = "matched_user_id")
     private User matchedUser;
 
