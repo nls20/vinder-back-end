@@ -72,12 +72,12 @@ public class DataLoader implements ApplicationRunner {
 
         ProfileImage picture1 = new ProfileImage("https://cdn.mos.cms.futurecdn.net/Rc3HBZyZDFLZR5VY6dd2LA.jpg", mark);
         profileImageRepository.save(picture1);
-//
-//        ProfileImage picture2 = new ProfileImage("image1.png", mark);
-//        profileImageRepository.save(picture2);
-//
-//        ProfileImage picture3 = new ProfileImage("image1.png", mark);
-//        profileImageRepository.save(picture3);
+
+        ProfileImage picture2 = new ProfileImage("image1.png", mark);
+        profileImageRepository.save(picture2);
+
+        ProfileImage picture3 = new ProfileImage("image1.png", mark);
+        profileImageRepository.save(picture3);
 
 
 
