@@ -15,7 +15,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom{
 
     @Transactional
     public List<User> matchedUsersForSpecificUser(Long userId) {
-        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM Match m INNER JOIN m.matchedUser u WHERE u.id="+userId, User.class);
+        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM Match m INNER JOIN m.matchedUser u WHERE m.user.id="+userId, User.class);
         List<User> results = query.getResultList();
         return results;
     }
