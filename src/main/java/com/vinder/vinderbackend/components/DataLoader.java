@@ -70,7 +70,7 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(james);
 
 
-        ProfileImage picture1 = new ProfileImage("https://cdn.mos.cms.futurecdn.net/Rc3HBZyZDFLZR5VY6dd2LA.jpg", mark);
+        ProfileImage picture1 = new ProfileImage("image1.png", mark);
         profileImageRepository.save(picture1);
 
         ProfileImage picture2 = new ProfileImage("image1.png", mark);
@@ -123,11 +123,11 @@ public class DataLoader implements ApplicationRunner {
 
         //MATCHES
 
-//        Match match1 = new Match(james, barry);
-//        matchRepository.save(match1);
-//
-//        Match match2 = new Match(doug, james);
-//        matchRepository.save(match2);
+        Match match1 = new Match(james, barry);
+        matchRepository.save(match1);
+
+        Match match2 = new Match(doug, barry);
+        matchRepository.save(match2);
 
     }
 
