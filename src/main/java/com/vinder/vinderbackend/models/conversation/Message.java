@@ -21,9 +21,6 @@ public class Message {
     @Column(name = "message")
     private String message;
 
-//    @Column(name = "time_sent")
-////    @Temporal(TemporalType.TIMESTAMP)
-//    private Timestamp timestamp;
 
     public Message() {
     }
@@ -31,7 +28,6 @@ public class Message {
     public Message(Participant participant, String message) {
         this.participant = participant;
         this.message = message;
-//        this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
     public Long getId() {
@@ -58,11 +54,4 @@ public class Message {
         this.message = message;
     }
 
-//    public Timestamp getTimestamp() {
-//        return timestamp;
-//    }
-//
-//    public void setTimestamp(Timestamp timestamp) {
-//        this.timestamp = timestamp;
-//    }
 }
