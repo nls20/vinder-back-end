@@ -1,6 +1,7 @@
 package com.vinder.vinderbackend.models.conversation;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

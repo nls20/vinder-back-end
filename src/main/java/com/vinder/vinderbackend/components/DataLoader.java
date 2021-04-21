@@ -5,6 +5,7 @@ import com.vinder.vinderbackend.models.conversation.Message;
 import com.vinder.vinderbackend.models.conversation.Participant;
 import com.vinder.vinderbackend.models.image.ProfileImage;
 import com.vinder.vinderbackend.models.matches.Match;
+import com.vinder.vinderbackend.models.matches.MessageItem;
 import com.vinder.vinderbackend.models.user.Gender;
 import com.vinder.vinderbackend.models.user.User;
 import com.vinder.vinderbackend.repositories.*;
@@ -33,6 +34,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     MatchRepository matchRepository;
+
+    @Autowired
+    MessageItemRepository messageItemRepository;
 
     public DataLoader() {
 
@@ -120,6 +124,8 @@ public class DataLoader implements ApplicationRunner {
         Message message5 = new Message(participant4, "Hi David (Chat 2)");
         messageRepository.save(message5);
 
+        MessageItem item1 = new MessageItem(james, barry, "hello");
+        messageItemRepository.save(item1);
 
         //MATCHES
 

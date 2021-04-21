@@ -7,6 +7,7 @@ import com.vinder.vinderbackend.models.conversation.Conversation;
 import com.vinder.vinderbackend.models.conversation.Participant;
 import com.vinder.vinderbackend.models.image.ProfileImage;
 import com.vinder.vinderbackend.models.matches.Match;
+import com.vinder.vinderbackend.models.matches.MessageItem;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.Entity;
@@ -59,6 +60,15 @@ public class User {
     @OneToMany(mappedBy = "user")
     @JsonIgnoreProperties({"user"})
     private List<Match> matchedWiths;
+
+
+    @OneToMany(mappedBy = "fromUser")
+    @JsonIgnoreProperties({"fromUser"})
+    private List<MessageItem> fromMessages;
+
+    @OneToMany(mappedBy = "toUser")
+    @JsonIgnoreProperties({"toUser"})
+    private List<MessageItem> toMessages;
 
 
 
