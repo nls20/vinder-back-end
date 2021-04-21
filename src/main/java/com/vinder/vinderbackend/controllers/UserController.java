@@ -50,17 +50,17 @@ public class UserController {
     }
 
     @GetMapping(value = "/users/{id}/matches")
-    public ResponseEntity<List<User>> getAllUserMatches(@PathVariable Long id){
+    public ResponseEntity<List<Match>> getAllUserMatches(@PathVariable Long id){
         Optional<User> user = userRepository.findById(id);
 
-        List<User> matches = new ArrayList<>();
+        List<Match> matches = new ArrayList<>();
 
         for (int i=0;i<user.get().getMatches().size();i++){
-            matches.add(user.get().getMatches().get(i).getUser());
+            matches.add(user.get().getMatches().get(i));
         }
 
         for (int i=0;i<user.get().getMatchedWiths().size();i++){
-            matches.add(user.get().getMatchedWiths().get(i).getMatchedUser());
+            matches.add(user.get().getMatchedWiths().get(i));
         }
 
         return new ResponseEntity<>(matches, HttpStatus.OK);

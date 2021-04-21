@@ -89,15 +89,17 @@ class VinderBackendApplicationTests {
 
 //        System.out.println(user.get().getMatches().get(0).getUser().getName());
 
-        List<User> matches = new ArrayList<>();
+        List<Match> matches = new ArrayList<>();
+
 
         for (int i=0;i<user.get().getMatches().size();i++){
-            matches.add(user.get().getMatches().get(i).getUser());
+            matches.add(user.get().getMatches().get(i));
+//            System.out.println(user.get().getMatches().get(i).getClass());
         }
 
         for (int i=0;i<user.get().getMatchedWiths().size();i++){
-            matches.add(user.get().getMatchedWiths().get(i).getMatchedUser());
-            System.out.println(matches.get(i+user.get().getMatches().size()).getName());
+            matches.add(user.get().getMatchedWiths().get(i));
+//            System.out.println(matches.get(i+user.get().getMatches().size()).getName());
         }
 
 
