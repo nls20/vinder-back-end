@@ -6,6 +6,7 @@ import com.vinder.vinderbackend.models.conversation.Message;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,24 +17,51 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "match_id")
-    private Long matchId;
 
     @OneToMany
     private List<Message> messages;
 
-//    @ManyToOne
-//    @JsonIgnoreProperties({"matches", "matchedWiths"})
-//    @JoinColumn(name = "user_id")
-//    private User user;
-//
-//    @ManyToOne
-//    @JsonIgnoreProperties({"matches", "matchedWiths"})
-//    @JoinColumn(name = "matched_user_id")
-//    private User matchedUser;
+    @ManyToOne
+    @JsonIgnoreProperties({"matches", "matchedWiths"})
+    @JoinColumn(name = "user_id")
+    private User user;
 
+    @ManyToOne
+    @JsonIgnoreProperties({"matches", "matchedWiths"})
+    @JoinColumn(name = "matched_user_id")
+    private User matchedUser;
+
+    public Match(User user, User matchedUser) {
+        this.user = user;
+        this.matchedUser = matchedUser;
+        this.messages = new ArrayList<>();
+    }
 
     public Match() {
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getMatchedUser() {
+        return matchedUser;
+    }
+
+    public void setMatchedUser(User matchedUser) {
+        this.matchedUser = matchedUser;
     }
 
     public Long getId() {
