@@ -129,6 +129,9 @@ public class DataLoader implements ApplicationRunner {
         Match match2 = new Match(doug, barry);
         matchRepository.save(match2);
 
+        Match match3 = new Match(barry, mark);
+        matchRepository.save(match3);
+
     }
 
 }
