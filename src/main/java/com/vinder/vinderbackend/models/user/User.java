@@ -74,15 +74,15 @@ public class User {
 //     private String userImage;
 
     //-----------------------------------
-    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
-    @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private List<Conversation> conversations;
+//    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "user")
+//    private List<Conversation> conversations;
 
-    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
-    @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private List<Participant> participants;
+//    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "user")
+//    private List<Participant> participants;
 
     public User() {
     }
@@ -99,8 +99,8 @@ public class User {
         this.matches = new ArrayList<>();
         this.matchedWiths = new ArrayList<>();
         this.peopleWhoLikedThisUser = new ArrayList<>();
-        this.conversations = new ArrayList<>();
-        this.conversations = new ArrayList<>();
+//        this.conversations = new ArrayList<>();
+//        this.conversations = new ArrayList<>();
     }
     //------------------------------------------
 
@@ -211,21 +211,21 @@ public class User {
         this.currentUser = currentUser;
     }
 
-    public List<Conversation> getConversations() {
-        return conversations;
-    }
-
-    public void setConversations(List<Conversation> conversations) {
-        this.conversations = conversations;
-    }
-
-    public List<Participant> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<Participant> participants) {
-        this.participants = participants;
-    }
+//    public List<Conversation> getConversations() {
+//        return conversations;
+//    }
+//
+//    public void setConversations(List<Conversation> conversations) {
+//        this.conversations = conversations;
+//    }
+//
+//    public List<Participant> getParticipants() {
+//        return participants;
+//    }
+//
+//    public void setParticipants(List<Participant> participants) {
+//        this.participants = participants;
+//    }
 
     public List<Match> getMatchedWiths() {
         return matchedWiths;
