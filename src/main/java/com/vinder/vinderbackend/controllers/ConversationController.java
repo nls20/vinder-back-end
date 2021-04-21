@@ -28,9 +28,10 @@ public class ConversationController {
         return new ResponseEntity(conversationRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/conversations/{currentUserId}/{")
-    public ResponseEntity getAConversation(@PathVariable Long id) {
-        return new ResponseEntity(conversationRepository.findById(id), HttpStatus.OK);
+    @GetMapping(value = "/conversations/{currentUserId}/{targetUserId}")
+    public ResponseEntity getAConversation(@PathVariable Long currentUserId,
+                                           @PathVariable Long targetUserId) {
+        return new ResponseEntity(conversationRepository.findById(currentUserId), HttpStatus.OK);
     }
 
     @PostMapping(value = "/conversations")
