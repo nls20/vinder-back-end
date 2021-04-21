@@ -15,13 +15,14 @@ public class MessageItem {
 
     @ManyToOne
     @JsonIgnoreProperties({"fromMessages", "toMessages"})
-    @JoinColumn(name = "from_user_id")
+    @JoinColumn(name = "to_user_id")
     private User fromUser;
 
     @ManyToOne
     @JsonIgnoreProperties({"fromMessages", "toMessages"})
-    @JoinColumn(name = "to_user_id")
+    @JoinColumn(name = "from_user_id")
     private User toUser;
+
 
 
     @Column(name = "message")

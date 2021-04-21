@@ -124,7 +124,9 @@ public class DataLoader implements ApplicationRunner {
         Message message5 = new Message(participant4, "Hi David (Chat 2)");
         messageRepository.save(message5);
 
-        MessageItem item1 = new MessageItem(james, barry, "hello");
+
+
+        MessageItem item1 = new MessageItem(barry, james, "hello");
         messageItemRepository.save(item1);
 
         //MATCHES
