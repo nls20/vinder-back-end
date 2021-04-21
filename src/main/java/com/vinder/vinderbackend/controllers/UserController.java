@@ -1,5 +1,6 @@
 package com.vinder.vinderbackend.controllers;
 
+import com.vinder.vinderbackend.models.matches.Match;
 import com.vinder.vinderbackend.models.user.Gender;
 import com.vinder.vinderbackend.models.user.User;
 import com.vinder.vinderbackend.repositories.UserRepository;
@@ -13,7 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -46,10 +49,22 @@ public class UserController {
         return new ResponseEntity(userRepository.findById(id), HttpStatus.OK);
     }
 
-//    @GetMapping(value = "/users/{id}/matches")
-//    public ResponseEntity<List<User>> getAllUserMatches(@PathVariable Long id){
-//        return new ResponseEntity<>()
-//    }
+    @GetMapping(value = "/users/{id}/matches")
+    public ResponseEntity<List<User>> getAllUserMatches(@PathVariable Long id){
+        Optional<User> user = userRepository.findById(id);
+
+        List<User> matches = new ArrayList<>();
+
+        for (int i=0;i<user.get().getMatches().size();i++){
+            matches.add(user.get().getMatches().get(i).getUser());
+        }
+
+        for (int i=0;i<user.get().getMatchedWiths().size();i++){
+            matches.add(user.get().getMatchedWiths().get(i).getUser());
+        }
+
+        return new ResponseEntity<>(matches, HttpStatus.OK);
+    }
 
     @PostMapping(value = "/users")
     public ResponseEntity<User> postUser(@RequestBody User user) {

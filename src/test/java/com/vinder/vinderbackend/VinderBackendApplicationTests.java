@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 class VinderBackendApplicationTests {
@@ -60,13 +62,41 @@ class VinderBackendApplicationTests {
         Match match2 = new Match(james, doug);
         matchRepository.save(match2);
 
-        System.out.println(james.getId());
+//        System.out.println(james.getId());
 
         List<User> users = userRepository.matchedUsersForSpecificUser(james.getId());
 
 //        System.out.println(userRepository.matchedUsersForSpecificUser(doug.getId()));
-        for (int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).getName());
+//        for (int i = 0; i < users.size(); i++) {
+//            System.out.println(users.get(i).getName());
+//        }
+
+
+        Optional<User> user = userRepository.findById(8L);
+
+//        List<Match> matches = user.get().getMatches();
+//        matches.addAll(user.get().getMatchedWiths());
+
+//        System.out.println(user.get().getMatchedWiths().get(0).getMatchedUser().getName());
+
+//        for (int i=0;i<user.get().getMatchedWiths().size();i++) {
+//            matches.add(user.get().getMatchedWiths().get(i));
+//        }
+
+//        for (int i=0;i<matches.size();i++) {
+//            System.out.println(matches.get(i).getUser().getName());
+//        }
+
+//        System.out.println(user.get().getMatches().get(0).getUser().getName());
+
+        List<User> matches = new ArrayList<>();
+
+        for (int i=0;i<user.get().getMatches().size();i++){
+            matches.add(user.get().getMatches().get(i).getUser());
+        }
+
+        for (int i=0;i<user.get().getMatchedWiths().size();i++){
+            matches.add(user.get().getMatchedWiths().get(i).getUser());
         }
 
     }
