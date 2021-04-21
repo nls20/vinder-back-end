@@ -19,7 +19,7 @@ public class ProfileImage {
 
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
 
