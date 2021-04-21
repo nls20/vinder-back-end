@@ -96,8 +96,11 @@ class VinderBackendApplicationTests {
         }
 
         for (int i=0;i<user.get().getMatchedWiths().size();i++){
-            matches.add(user.get().getMatchedWiths().get(i).getUser());
+            matches.add(user.get().getMatchedWiths().get(i).getMatchedUser());
+            System.out.println(matches.get(i+user.get().getMatches().size()).getName());
         }
+
+
 
     }
 

@@ -60,7 +60,7 @@ public class UserController {
         }
 
         for (int i=0;i<user.get().getMatchedWiths().size();i++){
-            matches.add(user.get().getMatchedWiths().get(i).getUser());
+            matches.add(user.get().getMatchedWiths().get(i).getMatchedUser());
         }
 
         return new ResponseEntity<>(matches, HttpStatus.OK);
