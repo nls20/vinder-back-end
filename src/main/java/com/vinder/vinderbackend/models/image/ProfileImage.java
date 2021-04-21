@@ -1,6 +1,7 @@
 package com.vinder.vinderbackend.models.image;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.vinder.vinderbackend.models.user.User;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class ProfileImage {
     private String mongoId;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonIgnoreProperties({"user_id"})
     @JoinColumn(name = "user_id")
     private User user;
 

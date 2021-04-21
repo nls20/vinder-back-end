@@ -46,7 +46,7 @@ public class User {
     private Boolean vaccinated;
 
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
@@ -74,6 +74,7 @@ public class User {
 //     private String userImage;
 
     //-----------------------------------
+
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @JsonIgnore
     @OneToMany(mappedBy = "user")
