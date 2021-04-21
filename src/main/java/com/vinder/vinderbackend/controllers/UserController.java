@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.websocket.server.PathParam;
 import java.awt.*;
 import java.util.List;
 
@@ -24,21 +25,28 @@ public class UserController {
     /**
      * GET /users
      * GET /users?gender=MALE
-     *
      */
+
 
     @GetMapping(value = "/users")
     public ResponseEntity<User> getAUser(
-            @RequestParam(required = false, name="gender") Gender gender
+            @RequestParam(required = false, name = "gender") Gender gender
     ) {
         //returns all users by gender
-        if(gender != null) {
+        if (gender != null) {
             List<User> allOfGender = userRepository.findByGender(gender);
             return new ResponseEntity(allOfGender, HttpStatus.OK);
         }
 
         //returns all users
         return new ResponseEntity(userRepository.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/users/{id}/potential-matches")
+    public ResponseEntity<List<User>> getAllPotentialMatches(@PathVariable Long id) {
+        List<User> users = userRepository.findAll();
+        users.remove(id-1);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @GetMapping(value = "/users/{id}")
