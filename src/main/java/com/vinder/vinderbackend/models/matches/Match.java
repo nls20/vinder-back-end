@@ -27,24 +27,32 @@ public class Match {
     @JoinColumn(name = "matched_user_id")
     private User matchedUser;
 
-    @OneToMany
-    private List<Message> messages;
+    @OneToMany(mappedBy = "match")
+    @JsonIgnoreProperties({"match"})
+    private List<MessageItem> messages;
+
+//    @OneToMany(mappedBy = "toUser")
+//    @JsonIgnoreProperties({"toUser", "fromUser"})
+//    private List<MessageItem> toMessages;
+
+//    @OneToMany
+//    private List<MessageItem> messages;
 
     public Match(User user, User matchedUser) {
         this.user = user;
         this.matchedUser = matchedUser;
         this.messages = new ArrayList<>();
-
+//        this.toMessages = new ArrayList<>();
     }
 
     public Match() {
     }
 
-    public List<Message> getMessages() {
+    public List<MessageItem> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<Message> messages) {
+    public void setMessages(List<MessageItem> messages) {
         this.messages = messages;
     }
 

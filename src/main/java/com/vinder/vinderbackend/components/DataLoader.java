@@ -126,8 +126,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        MessageItem item1 = new MessageItem(barry, james, "hello");
-        messageItemRepository.save(item1);
+
 
         //MATCHES
 
@@ -139,6 +138,9 @@ public class DataLoader implements ApplicationRunner {
 
         Match match3 = new Match(barry, mark);
         matchRepository.save(match3);
+
+        MessageItem item1 = new MessageItem(match1, james, "hello");
+        messageItemRepository.save(item1);
 
     }
 

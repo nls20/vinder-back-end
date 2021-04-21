@@ -14,15 +14,18 @@ public class MessageItem {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties({"fromMessages", "toMessages"})
-    @JoinColumn(name = "to_user_id")
-    private User fromUser;
+    @JsonIgnoreProperties({"messages"})
+    @JoinColumn(name = "match_id")
+    private Match match;
 
-    @ManyToOne
-    @JsonIgnoreProperties({"fromMessages", "toMessages"})
-    @JoinColumn(name = "from_user_id")
-    private User toUser;
+//    @ManyToOne
+//    @JsonIgnoreProperties({"fromMessages", "toMessages"})
+//    @JoinColumn(name = "from_user_id")
+//    private Match toUser;
 
+    @OneToOne
+    @JoinColumn(name = "id")
+    private User sender;
 
 
     @Column(name = "message")
@@ -32,26 +35,32 @@ public class MessageItem {
     public MessageItem() {
     }
 
-    public MessageItem(User fromUser, User toUser, String message) {
-        this.fromUser = fromUser;
-        this.toUser = toUser;
+    public MessageItem(Match match, User sender, String message) {
+        this.match = match;
+        this.sender = sender;
         this.message = message;
     }
 
-    public User getFromUser() {
-        return fromUser;
+    //    public MessageItem(Match fromUser, String message) {
+//        this.fromUser = fromUser;
+//        this.message = message;
+//    }
+
+
+    public Match getMatch() {
+        return match;
     }
 
-    public void setFromUser(User fromUser) {
-        this.fromUser = fromUser;
+    public void setMatch(Match match) {
+        this.match = match;
     }
 
-    public User getToUser() {
-        return toUser;
+    public User getSender() {
+        return sender;
     }
 
-    public void setToUser(User toUser) {
-        this.toUser = toUser;
+    public void setSender(User sender) {
+        this.sender = sender;
     }
 
     public String getMessage() {
