@@ -49,27 +49,27 @@ public class DataLoader implements ApplicationRunner {
 
         //USERS
 
-        User mark = new User("Mark", 33, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true);
+        User mark = new User("Mark", 33, Gender.Male, "Glasgow", Gender.Female, "Programming", true);
         userRepository.save(mark);
 
-        User david = new User("David", 24, Gender.MALE, "Glasgow", Gender.FEMALE, "Programming", true);
+        User david = new User("David", 24, Gender.Male, "Glasgow", Gender.Female, "Programming", true);
         userRepository.save(david);
 
-        User natalie = new User("Natalie", 30, Gender.FEMALE, "Glasgow", Gender.MALE, "Programming", true);
+        User natalie = new User("Natalie", 30, Gender.Female, "Glasgow", Gender.Male, "Programming", true);
         userRepository.save(natalie);
 
 
-        User mary = new User("Mary", 45, Gender.MALE, "Edinburgh", Gender.FEMALE, "Cycling", true);
+        User mary = new User("Mary", 45, Gender.Male, "Edinburgh", Gender.Female, "Cycling", true);
         userRepository.save(mary);
 
 
-        User amy = new User("Amy", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        User amy = new User("Amy", 20, Gender.Male, "Inverness", Gender.Female, "Running", true);
         userRepository.save(amy);
 
-        User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        User james = new User("James", 18, Gender.Male, "Inverness", Gender.Female, "Running", true);
         userRepository.save(james);
 
-        User barry = new User("Barry", 50, Gender.MALE, "Glasgow", Gender.FEMALE, "Swimming", true);
+        User barry = new User("Barry", 50, Gender.Male, "Glasgow", Gender.Female, "Swimming", true);
         userRepository.save(barry);
 
         ProfileImage picture1 = new ProfileImage("https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/09/09/11/markzuckerberg.jpg?width=1200", mark);
