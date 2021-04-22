@@ -33,4 +33,10 @@ public class ProfileImageController {
         profileImageRepository.save(profileImage);
         return new ResponseEntity<>(profileImage, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/profileImage/{id}")
+    public ResponseEntity putProfileImage(@RequestBody ProfileImage profileImage, @PathVariable Long id) {
+        profileImageRepository.save(profileImage);
+        return new ResponseEntity<>(profileImage, HttpStatus.CREATED);
+    }
 }

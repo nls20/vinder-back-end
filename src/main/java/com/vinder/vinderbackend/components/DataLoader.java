@@ -81,7 +81,7 @@ public class DataLoader implements ApplicationRunner {
         ProfileImage picture3 = new ProfileImage("https://wwd.com/wp-content/uploads/2021/02/Natalie-Mariduena-Sports-Illustrated-Swimsuit-by-James-Macari-Image.jpg?crop=0px%2C0px%2C4000px%2C2671px&resize=640%2C415", natalie);
         profileImageRepository.save(picture3);
 
-        ProfileImage picture4 = new ProfileImage("https://pbs.twimg.com/profile_images/988775660163252226/XpgonN0X_400x400.jpg", barry);
+        ProfileImage picture4 = new ProfileImage("6081e4f0097cc525f82e61e6", barry);
         profileImageRepository.save(picture4);
 
         ProfileImage picture5 = new ProfileImage("https://nmwa.org/wp-content/uploads/2020/01/Cassatt-Mary.jpg", mary);
