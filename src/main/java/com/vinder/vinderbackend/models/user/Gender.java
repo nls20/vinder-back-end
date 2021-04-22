@@ -2,12 +2,18 @@ package com.vinder.vinderbackend.models.user;
 
 public enum Gender {
 
-    MALE,
-    FEMALE,
-    NONBINARY,
-    ALL;
+    MALE("Male"),
+    FEMALE("Female"),
+    NONBINARY("Non-Binary"),
+    ALL("All");
 
-    Gender() {
+    private final String gender;
 
+    Gender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getEnumGender() {
+        return gender;
     }
 }
