@@ -58,104 +58,115 @@ public class DataLoader implements ApplicationRunner {
         User natalie = new User("Natalie", 30, Gender.FEMALE, "Glasgow", Gender.MALE, "Programming", true);
         userRepository.save(natalie);
 
-        User harrison = new User("Harrison", 23, Gender.MALE, "Alderran", Gender.FEMALE, "Killing bad guys", true);
-        userRepository.save(harrison);
 
-        User bill = new User("Bill", 50, Gender.MALE, "Glasgow", Gender.FEMALE, "Swimming", true);
-        userRepository.save(bill);
+        User mary = new User("Mary", 45, Gender.MALE, "Edinburgh", Gender.FEMALE, "Cycling", true);
+        userRepository.save(mary);
 
-        User mike = new User("Mike", 45, Gender.MALE, "Edinburgh", Gender.FEMALE, "Cycling", true);
-        userRepository.save(mike);
 
-        User doug = new User("Doug", 25, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
-        userRepository.save(doug);
-
-        User barry = new User("Barry", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
-        userRepository.save(barry);
+        User amy = new User("Amy", 20, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
+        userRepository.save(amy);
 
         User james = new User("James", 18, Gender.MALE, "Inverness", Gender.FEMALE, "Running", true);
         userRepository.save(james);
 
+        User barry = new User("Barry", 50, Gender.MALE, "Glasgow", Gender.FEMALE, "Swimming", true);
+        userRepository.save(barry);
 
         ProfileImage picture1 = new ProfileImage("https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/09/09/11/markzuckerberg.jpg?width=1200", mark);
         profileImageRepository.save(picture1);
 
-//        ProfileImage picture2 = new ProfileImage("image1.png", mark);
-//        profileImageRepository.save(picture2);
-//
-//        ProfileImage picture3 = new ProfileImage("image1.png", mark);
-//        profileImageRepository.save(picture3);
+        ProfileImage picture2 = new ProfileImage("https://i.pinimg.com/originals/4e/10/e5/4e10e564d614436de1fc60cb45198cc4.jpg", david);
+        profileImageRepository.save(picture2);
+
+        ProfileImage picture3 = new ProfileImage("https://wwd.com/wp-content/uploads/2021/02/Natalie-Mariduena-Sports-Illustrated-Swimsuit-by-James-Macari-Image.jpg?crop=0px%2C0px%2C4000px%2C2671px&resize=640%2C415", natalie);
+        profileImageRepository.save(picture3);
+
+        ProfileImage picture4 = new ProfileImage("https://pbs.twimg.com/profile_images/988775660163252226/XpgonN0X_400x400.jpg", barry);
+        profileImageRepository.save(picture4);
+
+        ProfileImage picture5 = new ProfileImage("https://nmwa.org/wp-content/uploads/2020/01/Cassatt-Mary.jpg", mary);
+        profileImageRepository.save(picture5);
 
 
+        ProfileImage picture6 = new ProfileImage("https://dazedimg-dazedgroup.netdna-ssl.com/1600/azure/dazed-prod/1260/6/1266650.jpg", amy);
+        profileImageRepository.save(picture6);
 
-        //CONVERSATIONS
-            //CONVERSATION_1
-
-        Conversation conversation1 = new Conversation(mark);
-        conversationRepository.save(conversation1);
-
-        Participant participant1 = new Participant(conversation1, mark);
-        participantRepository.save(participant1);
-
-        Participant participant2 = new Participant(conversation1, natalie);
-        participantRepository.save(participant2);
-
-        Message message1 = new Message(participant1, "Hi Natalie (Chat 1)");
-        messageRepository.save(message1);
-
-        Message message2 = new Message(participant2, "Hi Mark (Chat 1)");
-        messageRepository.save(message2);
-
-        Message message3 = new Message(participant1, "This chat is boring (Chat 1)");
-        messageRepository.save(message3);
-
-
-            //CONVERSATION_2
-
-        Conversation conversation2 = new Conversation(david);
-        conversationRepository.save(conversation2);
-
-        Participant participant3 = new Participant(conversation2, david);
-        participantRepository.save(participant3);
-
-        Participant participant4 = new Participant(conversation2, natalie);
-        participantRepository.save(participant4);
-
-        Message message4 = new Message(participant3, "Yo Natalie (Chat 2) ");
-        messageRepository.save(message4);
-
-        Message message5 = new Message(participant4, "Hi David (Chat 2)");
-        messageRepository.save(message5);
-
+        ProfileImage picture7 = new ProfileImage("https://cdn.vox-cdn.com/thumbor/lJCqhjRPikekq4a9mWVWPQJb3qU=/0x0:844x433/1200x800/filters:focal(378x168:512x302)/cdn.vox-cdn.com/uploads/chorus_image/image/63840187/Screen_Shot_2019_05_15_at_12.58.00_PM.0.png", james);
+        profileImageRepository.save(picture7);
 
 
 
 
         //MATCHES
 
-        Match match1 = new Match(james, barry);
+        Match match1 = new Match(barry, david);
         matchRepository.save(match1);
 
-
-        Match match2 = new Match(doug, barry);
+        Match match2 = new Match(barry, amy);
         matchRepository.save(match2);
 
-        Match match3 = new Match(barry, mark);
+        Match match3 = new Match(barry, natalie);
         matchRepository.save(match3);
 
-        MessageItem item1 = new MessageItem(barry, match1, "hello");
-        messageItemRepository.save(item1);
+        MessageItem messageMatch1 = new MessageItem(barry, match1, "Do you like raisins");
+        messageItemRepository.save(messageMatch1);
 
-        MessageItem item2 = new MessageItem(james, match1, "hello yourself");
-        messageItemRepository.save(item2);
+        MessageItem messageMatch2 = new MessageItem(barry, match1, "no....how about a date?");
+        messageItemRepository.save(messageMatch2);
 
         List<MessageItem> items = new ArrayList<>();
-        items.add(item1);
-        items.add(item2);
-
+        items.add(messageMatch1);
+        items.add(messageMatch2);
         match1.setMessages(items);
 
 
+        MessageItem messageMatch3 = new MessageItem(barry, match2, "Hey, how are you doing? ");
+        messageItemRepository.save(messageMatch3);
+
+        MessageItem messageMatch4 = new MessageItem(amy, match2, "Yeah, good. Just out having a party");
+        messageItemRepository.save(messageMatch4);
+
+        MessageItem messageMatch5 = new MessageItem(barry, match2, "sounds like you are having a good time, can i come?");
+        messageItemRepository.save(messageMatch5);
+
+        MessageItem messageMatch6 = new MessageItem(amy, match2, "emm.....Might be a bit wild for you tastes");
+        messageItemRepository.save(messageMatch6);
+
+        MessageItem messageMatch7 = new MessageItem(barry, match2, "Do you even know how i am? I am a party animal");
+        messageItemRepository.save(messageMatch7);
+
+        MessageItem messageMatch8 = new MessageItem(amy, match2, "........, come on then.");
+        messageItemRepository.save(messageMatch8);
+
+
+        List<MessageItem> items1 = new ArrayList<>();
+        items1.add(messageMatch3);
+        items1.add(messageMatch4);
+        items1.add(messageMatch5);
+        items1.add(messageMatch6);
+        items1.add(messageMatch7);
+        items1.add(messageMatch8);
+        match2.setMessages(items1);
+
+
+        MessageItem messageMatch9 = new MessageItem(barry, match3, "Oh my god, did it hurt?");
+        messageItemRepository.save(messageMatch9);
+
+        MessageItem messageMatch10 = new MessageItem(natalie, match3, "what?");
+        messageItemRepository.save(messageMatch10);
+
+        MessageItem messageMatch11 = new MessageItem(barry, match3, "When you fell down from heaven");
+        messageItemRepository.save(messageMatch11);
+
+        MessageItem messageMatch12 = new MessageItem(natalie, match3, "........, Smooth moves.");
+        messageItemRepository.save(messageMatch12);
+
+        List<MessageItem> items2 = new ArrayList<>();
+        items2.add(messageMatch9);
+        items2.add(messageMatch10);
+        items2.add(messageMatch11);
+        items2.add(messageMatch12);
+        match3.setMessages(items2);
 
     }
 

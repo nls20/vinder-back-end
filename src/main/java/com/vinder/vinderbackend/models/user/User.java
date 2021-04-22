@@ -1,5 +1,6 @@
 package com.vinder.vinderbackend.models.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -47,7 +48,7 @@ public class User {
     private Boolean vaccinated;
 
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
-    @JsonIgnore
+    @JsonIgnoreProperties({"user"})
     @OneToMany(mappedBy = "user")
     private List<ProfileImage> profileImages;
 
@@ -79,12 +80,6 @@ public class User {
     private User currentUser;
 
 
-    //---------------image--------------------
-//    @Column(name= "userImage")
-//     private String userImage;
-
-    //-----------------------------------
-
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @JsonIgnore
     @OneToMany(mappedBy = "user")
@@ -97,8 +92,6 @@ public class User {
 
     public User() {
     }
-
-
 
     public User(String name, int age, Gender gender, String location, Gender gender_preference, String bio, Boolean vaccinated) {
         this.name = name;
@@ -116,17 +109,6 @@ public class User {
 //        this.fromMessages = new ArrayList<>();
 //        this.toMessages = new ArrayList<>();
     }
-    //------------------------------------------
-
-//    public String getUserImage() {
-//        return userImage;
-//    }
-//
-//    public void setUserImage(String userImage) {
-//        this.userImage = userImage;
-//    }
-
-    //---------------------------------------------
 
     public Long getId() {
         return id;

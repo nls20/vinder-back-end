@@ -19,7 +19,7 @@ public class ProfileImage {
     private String mongoId;
 
     @ManyToOne
-    @JsonIgnoreProperties({"user_id"})
+    @JsonIgnoreProperties({"user"})
     @JoinColumn(name = "user_id")
     private User user;
 
