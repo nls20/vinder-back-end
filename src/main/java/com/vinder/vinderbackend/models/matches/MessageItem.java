@@ -14,14 +14,14 @@ public class MessageItem {
     private Long id;
 
     @ManyToOne
-    @JsonIgnoreProperties({"fromMessages", "toMessages"})
+    @JsonIgnoreProperties({"matches", "matchedWiths"})
     @JoinColumn(name = "to_user_id")
     private User fromUser;
 
     @ManyToOne
-    @JsonIgnoreProperties({"fromMessages", "toMessages"})
-    @JoinColumn(name = "from_user_id")
-    private User toUser;
+    @JsonIgnoreProperties({"messages"})
+    @JoinColumn(name = "match_id")
+    private Match match;
 
     @Column(name = "message")
     private String message;
@@ -30,9 +30,9 @@ public class MessageItem {
     public MessageItem() {
     }
 
-    public MessageItem(User fromUser, User toUser, String message) {
+    public MessageItem(User fromUser, Match match, String message) {
         this.fromUser = fromUser;
-        this.toUser = toUser;
+        this.match = match;
         this.message = message;
     }
 
@@ -44,12 +44,12 @@ public class MessageItem {
         this.fromUser = fromUser;
     }
 
-    public User getToUser() {
-        return toUser;
+    public Match getMatch() {
+        return match;
     }
 
-    public void setToUser(User toUser) {
-        this.toUser = toUser;
+    public void setMatch(Match match) {
+        this.match = match;
     }
 
     public String getMessage() {

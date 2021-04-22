@@ -129,15 +129,12 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        MessageItem item1 = new MessageItem(barry, james, "hello");
-        messageItemRepository.save(item1);
 
-        MessageItem item2 = new MessageItem(james, barry, "hello yourself");
-        messageItemRepository.save(item2);
 
         //MATCHES
 
         Match match1 = new Match(james, barry);
+        matchRepository.save(match1);
 
 
         Match match2 = new Match(doug, barry);
@@ -146,12 +143,18 @@ public class DataLoader implements ApplicationRunner {
         Match match3 = new Match(barry, mark);
         matchRepository.save(match3);
 
+        MessageItem item1 = new MessageItem(barry, match1, "hello");
+        messageItemRepository.save(item1);
+
+        MessageItem item2 = new MessageItem(james, match1, "hello yourself");
+        messageItemRepository.save(item2);
+
         List<MessageItem> items = new ArrayList<>();
         items.add(item1);
         items.add(item2);
 
         match1.setMessages(items);
-        matchRepository.save(match1);
+
 
 
     }

@@ -35,8 +35,8 @@ public class Match {
 //    @JsonIgnoreProperties({"toUser", "fromUser"})
 //    private List<MessageItem> toMessages;
 
-    @OneToMany(mappedBy = "fromUser")
-    @JsonIgnoreProperties({})
+    @OneToMany(mappedBy = "match")
+    @JsonIgnoreProperties({"match"})
     private List<MessageItem> messages;
 
     public Match(User user, User matchedUser) {
