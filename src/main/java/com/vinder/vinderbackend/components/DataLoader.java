@@ -14,6 +14,9 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -129,16 +132,27 @@ public class DataLoader implements ApplicationRunner {
         MessageItem item1 = new MessageItem(barry, james, "hello");
         messageItemRepository.save(item1);
 
+        MessageItem item2 = new MessageItem(james, barry, "hello yourself");
+        messageItemRepository.save(item2);
+
         //MATCHES
 
         Match match1 = new Match(james, barry);
-        matchRepository.save(match1);
+
 
         Match match2 = new Match(doug, barry);
         matchRepository.save(match2);
 
         Match match3 = new Match(barry, mark);
         matchRepository.save(match3);
+
+        List<MessageItem> items = new ArrayList<>();
+        items.add(item1);
+        items.add(item2);
+
+        match1.setMessages(items);
+        matchRepository.save(match1);
+
 
     }
 

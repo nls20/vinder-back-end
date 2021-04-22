@@ -23,8 +23,6 @@ public class MessageItem {
     @JoinColumn(name = "from_user_id")
     private User toUser;
 
-
-
     @Column(name = "message")
     private String message;
 
