@@ -150,8 +150,8 @@ public class User {
         this.age = age;
     }
 
-    public String getGender() {
-        return gender.getEnumGender();
+    public Gender getGender() {
+        return gender;
     }
 
     public void setGender(Gender gender) {
@@ -166,8 +166,8 @@ public class User {
         this.location = location;
     }
 
-    public String getGender_preference() {
-        return gender_preference.getEnumGender();
+    public Gender getGender_preference() {
+        return gender_preference;
     }
 
     public void setGender_preference(Gender gender_preference) {
