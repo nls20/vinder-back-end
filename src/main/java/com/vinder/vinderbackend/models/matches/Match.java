@@ -27,26 +27,52 @@ public class Match {
     @JoinColumn(name = "matched_user_id")
     private User matchedUser;
 
+//    @OneToMany(mappedBy = "fromUser")
+//    @JsonIgnoreProperties({"fromUser", "toUser"})
+//    private List<MessageItem> fromMessages;
+//
+//    @OneToMany(mappedBy = "toUser")
+//    @JsonIgnoreProperties({"toUser", "fromUser"})
+//    private List<MessageItem> toMessages;
+
     @OneToMany
-    private List<Message> messages;
+    private List<MessageItem> messages;
 
     public Match(User user, User matchedUser) {
         this.user = user;
         this.matchedUser = matchedUser;
         this.messages = new ArrayList<>();
-
+//        this.fromMessages  = new ArrayList<>();
+//        this.toMessages = new ArrayList<>();
     }
 
     public Match() {
     }
 
-    public List<Message> getMessages() {
+    public List<MessageItem> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<Message> messages) {
+    public void setMessages(List<MessageItem> messages) {
         this.messages = messages;
     }
+
+    //    public List<MessageItem> getFromMessages() {
+//        return fromMessages;
+//    }
+//
+//    public void setFromMessages(List<MessageItem> fromMessages) {
+//        this.fromMessages = fromMessages;
+//    }
+//
+//    public List<MessageItem> getToMessages() {
+//        return toMessages;
+//    }
+//
+//    public void setToMessages(List<MessageItem> toMessages) {
+//        this.toMessages = toMessages;
+//    }
+
 
     public Long getId() {
         return id;

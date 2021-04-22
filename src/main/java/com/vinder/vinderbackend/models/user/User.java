@@ -62,13 +62,13 @@ public class User {
     private List<Match> matchedWiths;
 
 
-    @OneToMany(mappedBy = "fromUser")
-    @JsonIgnoreProperties({"fromUser", "toUser"})
-    private List<MessageItem> fromMessages;
-
-    @OneToMany(mappedBy = "toUser")
-    @JsonIgnoreProperties({"toUser", "fromUser"})
-    private List<MessageItem> toMessages;
+//    @OneToMany(mappedBy = "fromUser")
+//    @JsonIgnoreProperties({"fromUser", "toUser"})
+//    private List<MessageItem> fromMessages;
+//
+//    @OneToMany(mappedBy = "toUser")
+//    @JsonIgnoreProperties({"toUser", "fromUser"})
+//    private List<MessageItem> toMessages;
 
 
 
@@ -113,8 +113,8 @@ public class User {
         this.matchedWiths = new ArrayList<>();
         this.peopleWhoLikedThisUser = new ArrayList<>();
         this.conversations = new ArrayList<>();
-        this.fromMessages = new ArrayList<>();
-        this.toMessages = new ArrayList<>();
+//        this.fromMessages = new ArrayList<>();
+//        this.toMessages = new ArrayList<>();
     }
     //------------------------------------------
 
@@ -136,21 +136,21 @@ public class User {
         this.id = id;
     }
 
-    public List<MessageItem> getFromMessages() {
-        return fromMessages;
-    }
-
-    public void setFromMessages(List<MessageItem> fromMessages) {
-        this.fromMessages = fromMessages;
-    }
-
-    public List<MessageItem> getToMessages() {
-        return toMessages;
-    }
-
-    public void setToMessages(List<MessageItem> toMessages) {
-        this.toMessages = toMessages;
-    }
+//    public List<MessageItem> getFromMessages() {
+//        return fromMessages;
+//    }
+//
+//    public void setFromMessages(List<MessageItem> fromMessages) {
+//        this.fromMessages = fromMessages;
+//    }
+//
+//    public List<MessageItem> getToMessages() {
+//        return toMessages;
+//    }
+//
+//    public void setToMessages(List<MessageItem> toMessages) {
+//        this.toMessages = toMessages;
+//    }
 
     public String getName() {
         return name;
