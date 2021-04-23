@@ -78,10 +78,19 @@ public class DataLoader implements ApplicationRunner {
         ProfileImage picture2 = new ProfileImage("https://i.pinimg.com/originals/4e/10/e5/4e10e564d614436de1fc60cb45198cc4.jpg", david);
         profileImageRepository.save(picture2);
 
+        ProfileImage picture20 = new ProfileImage("https://image.cnbcfm.com/api/v1/image/104577141-GettyImages-688402786.jpg?v=1532563803&w=1600&h=900", mark);
+        profileImageRepository.save(picture20);
+
+        ProfileImage picture21 = new ProfileImage("https://i.ytimg.com/vi/mZaec_mlq9M/maxresdefault.jpg", mark);
+        profileImageRepository.save(picture21);
+
+        ProfileImage picture22 = new ProfileImage("https://im.indiatimes.in/content/2019/May/mark_zuckerberg_happy_birthday_facebook_ceo_1557814365.jpg", mark);
+        profileImageRepository.save(picture22);
+
         ProfileImage picture3 = new ProfileImage("https://wwd.com/wp-content/uploads/2021/02/Natalie-Mariduena-Sports-Illustrated-Swimsuit-by-James-Macari-Image.jpg?crop=0px%2C0px%2C4000px%2C2671px&resize=640%2C415", natalie);
         profileImageRepository.save(picture3);
 
-        ProfileImage picture4 = new ProfileImage("https://pbs.twimg.com/profile_images/988775660163252226/XpgonN0X_400x400.jpg", barry);
+        ProfileImage picture4 = new ProfileImage("6082a080176228e793501c02", barry);
         profileImageRepository.save(picture4);
 
         ProfileImage picture5 = new ProfileImage("https://nmwa.org/wp-content/uploads/2020/01/Cassatt-Mary.jpg", mary);
@@ -108,10 +117,19 @@ public class DataLoader implements ApplicationRunner {
         Match match3 = new Match(barry, natalie);
         matchRepository.save(match3);
 
+        Match match4 = new Match(barry, mary);
+        matchRepository.save(match4);
+
+        Match match5 = new Match(barry, amy);
+        matchRepository.save(match5);
+
+        Match match6 = new Match(barry, james);
+        matchRepository.save(match6);
+
         MessageItem messageMatch1 = new MessageItem(barry, match1, "Do you like raisins");
         messageItemRepository.save(messageMatch1);
 
-        MessageItem messageMatch2 = new MessageItem(barry, match1, "no....how about a date?");
+        MessageItem messageMatch2 = new MessageItem(barry, match1, "No?....How about a date?");
         messageItemRepository.save(messageMatch2);
 
         List<MessageItem> items = new ArrayList<>();
@@ -135,7 +153,7 @@ public class DataLoader implements ApplicationRunner {
         MessageItem messageMatch7 = new MessageItem(barry, match2, "Do you even know how i am? I am a party animal");
         messageItemRepository.save(messageMatch7);
 
-        MessageItem messageMatch8 = new MessageItem(amy, match2, "........, come on then.");
+        MessageItem messageMatch8 = new MessageItem(amy, match2, "......... come on then.");
         messageItemRepository.save(messageMatch8);
 
 
@@ -152,13 +170,13 @@ public class DataLoader implements ApplicationRunner {
         MessageItem messageMatch9 = new MessageItem(barry, match3, "Oh my god, did it hurt?");
         messageItemRepository.save(messageMatch9);
 
-        MessageItem messageMatch10 = new MessageItem(natalie, match3, "what?");
+        MessageItem messageMatch10 = new MessageItem(natalie, match3, "What?");
         messageItemRepository.save(messageMatch10);
 
         MessageItem messageMatch11 = new MessageItem(barry, match3, "When you fell down from heaven");
         messageItemRepository.save(messageMatch11);
 
-        MessageItem messageMatch12 = new MessageItem(natalie, match3, "........, Smooth moves.");
+        MessageItem messageMatch12 = new MessageItem(natalie, match3, "......... Smooth moves");
         messageItemRepository.save(messageMatch12);
 
         List<MessageItem> items2 = new ArrayList<>();
