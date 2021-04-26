@@ -55,7 +55,7 @@ public class DataLoader implements ApplicationRunner {
         User david = new User("David", 24, Gender.Male, "Glasgow", Gender.Female, "Programming", true);
         userRepository.save(david);
 
-        User natalie = new User("Natalie", 30, Gender.Female, "Glasgow", Gender.Male, "Programming", true);
+        User natalie = new User("Natalie", 30, Gender.Female, "Edinburgh", Gender.Male, "Programming", true);
         userRepository.save(natalie);
 
 
